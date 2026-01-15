@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiago Borges | CTO</title>
+    <title>Tiago Borges | CTO - IA, Automações e Web</title>
+    <meta name="description" content="Simplifico tecnologia para empresários. Especialista em IA, Automações e Desenvolvimento Web.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,19 +15,19 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0D0D0D;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            position: relative;
+            color: #FFFFFF;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Background com efeito matrix/código */
+        /* Background com efeito gradiente */
         body::before {
             content: '';
             position: fixed;
@@ -41,40 +42,89 @@
             z-index: -1;
         }
 
-        .container {
-            width: 100%;
-            max-width: 400px;
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            gap: 24px;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Foto de perfil */
-        .profile-photo {
-            width: 120px;
-            height: 120px;
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2563EB;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #B4B4B4;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FFFFFF;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #7B2CBF, #2563EB);
+            color: #FFFFFF !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-photo {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid transparent;
-            background: linear-gradient(135deg, #7B2CBF, #2563EB) border-box;
-            padding: 3px;
+            margin: 0 auto 32px;
             position: relative;
-        }
-
-        .profile-photo::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            padding: 3px;
+            padding: 4px;
             background: linear-gradient(135deg, #7B2CBF, #2563EB);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
         }
 
-        .profile-photo img {
+        .hero-photo img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
@@ -82,174 +132,545 @@
             background-color: #1a1a2e;
         }
 
-        /* Informações do perfil */
-        .profile-info {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .profile-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-
-        .profile-handle {
-            font-size: 16px;
-            color: #B4B4B4;
-        }
-
-        .profile-title {
-            font-size: 14px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
             color: #2563EB;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
             font-weight: 500;
+            margin-bottom: 24px;
         }
 
-        /* Links */
-        .links {
-            width: 100%;
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #7B2CBF, #2563EB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #B4B4B4;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
             display: flex;
-            flex-direction: column;
             gap: 16px;
-            margin-top: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .link-button {
-            display: flex;
+        .btn-primary {
+            display: inline-flex;
             align-items: center;
-            gap: 16px;
-            width: 100%;
-            padding: 16px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            gap: 10px;
+            background: linear-gradient(135deg, #7B2CBF, #2563EB);
             color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 12px;
             text-decoration: none;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(123, 44, 191, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Section Base */
+        section {
+            padding: 100px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: #B4B4B4;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sobre Section */
+        .sobre {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .sobre-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .sobre-text h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .sobre-text p {
+            color: #B4B4B4;
+            margin-bottom: 16px;
+        }
+
+        .sobre-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7B2CBF, #2563EB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card .label {
+            color: #B4B4B4;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Servicos Section */
+        .servicos-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .servico-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .link-button::before {
+        .servico-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(123, 44, 191, 0.2), rgba(37, 99, 235, 0.2));
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(37, 99, 235, 0.1));
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .link-button:hover {
-            transform: translateY(-2px);
-            border-color: rgba(123, 44, 191, 0.5);
-            box-shadow: 0 8px 32px rgba(123, 44, 191, 0.2);
+        .servico-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(123, 44, 191, 0.3);
         }
 
-        .link-button:hover::before {
+        .servico-card:hover::before {
             opacity: 1;
         }
 
-        .link-button svg {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
+        .servico-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #7B2CBF, #2563EB);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
             position: relative;
             z-index: 1;
         }
 
-        .link-button span {
+        .servico-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #FFFFFF;
+        }
+
+        .servico-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            margin-bottom: 12px;
             position: relative;
             z-index: 1;
         }
 
-        /* Cores específicas dos botões */
-        .link-whatsapp:hover {
-            border-color: #25D366;
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);
-        }
-
-        .link-whatsapp svg {
-            fill: #25D366;
-        }
-
-        .link-linkedin:hover {
-            border-color: #0A66C2;
-            box-shadow: 0 8px 32px rgba(10, 102, 194, 0.2);
-        }
-
-        .link-linkedin svg {
-            fill: #0A66C2;
-        }
-
-        /* Rodapé */
-        .footer {
-            margin-top: 32px;
-            text-align: center;
+        .servico-card p {
             color: #B4B4B4;
-            font-size: 12px;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
         }
 
-        .footer a {
-            color: #7B2CBF;
+        /* CTA Section */
+        .cta {
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.15), rgba(37, 99, 235, 0.15));
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            border-radius: 24px;
+            padding: 64px 48px;
+        }
+
+        .cta h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #B4B4B4;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #B4B4B4;
             text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-copy {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #FFFFFF;
+            border-radius: 2px;
         }
 
         /* Responsividade */
-        @media (max-width: 480px) {
-            .profile-name {
-                font-size: 24px;
+        @media (max-width: 900px) {
+            .servicos-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
             }
 
-            .link-button {
-                padding: 14px 20px;
-                font-size: 15px;
+            .sobre-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sobre-stats {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 13, 13, 0.98);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Foto de Perfil -->
-        <div class="profile-photo">
-            <img src="foto-perfil.png" alt="Tiago Borges" id="profile-img">
-        </div>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">tiago<span>.dev</span></a>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Servicos</a>
+            <a href="links.html">Links</a>
+            <a href="https://wa.me/5531997055135?text=Oi%20Tiago!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os." target="_blank" class="nav-cta">Contato</a>
+        </nav>
+    </header>
 
-        <!-- Informações -->
-        <div class="profile-info">
-            <h1 class="profile-name">Tiago Borges</h1>
-            <p class="profile-handle">@tiagoborges.dev</p>
-            <p class="profile-title">CTO | Simplifico tecnologia para empresários</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-photo">
+                <img src="foto-perfil.png" alt="Tiago Borges">
+            </div>
+            <span class="hero-badge">CTO | Especialista em Tecnologia</span>
+            <h1>Simplifico <span>tecnologia</span> para empresarios</h1>
+            <p>Transformo desafios complexos em solucoes simples e eficientes. IA, automacoes e desenvolvimento web para acelerar seu negocio.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5531997055135?text=Oi%20Tiago!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os." target="_blank" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Falar no WhatsApp
+                </a>
+                <a href="#servicos" class="btn-secondary">
+                    Ver Servicos
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- Links -->
-        <div class="links">
-            <!-- WhatsApp -->
-            <a href="https://wa.me/5531997055135?text=Oi%20Tiago!%20Vim%20pelo%20seu%20Instagram%20e%20quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os." target="_blank" rel="noopener noreferrer" class="link-button link-whatsapp">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sobre Section -->
+    <section class="sobre" id="sobre">
+        <div class="sobre-content">
+            <div class="sobre-text">
+                <h3>Sobre mim</h3>
+                <p>Sou CTO e especialista em tecnologia com foco em simplificar processos e acelerar resultados para empresarios.</p>
+                <p>Minha missao e transformar a complexidade tecnologica em solucoes praticas que geram impacto real no seu negocio.</p>
+                <p>Trabalho com inteligencia artificial, automacoes inteligentes e desenvolvimento web moderno para criar experiencias que fazem a diferenca.</p>
+            </div>
+            <div class="sobre-stats">
+                <div class="stat-card">
+                    <div class="number">+50</div>
+                    <div class="label">Projetos entregues</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">+5</div>
+                    <div class="label">Anos de experiencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100%</div>
+                    <div class="label">Foco em resultados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">24h</div>
+                    <div class="label">Resposta rapida</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicos Section -->
+    <section id="servicos">
+        <div class="section-header">
+            <h2>Servicos</h2>
+            <p>Solucoes tecnologicas personalizadas para impulsionar seu negocio</p>
+        </div>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+                <h3>Inteligencia Artificial</h3>
+                <p>Chatbots inteligentes, automacao de atendimento e solucoes com IA para otimizar processos e aumentar a produtividade.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                    </svg>
+                </div>
+                <h3>Automacoes</h3>
+                <p>Automatize tarefas repetitivas, integre sistemas e crie fluxos de trabalho eficientes que economizam tempo e recursos.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+                    </svg>
+                </div>
+                <h3>Desenvolvimento Web</h3>
+                <p>Sites modernos, landing pages de alta conversao e aplicacoes web sob medida para sua empresa crescer online.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-box">
+            <h2>Vamos conversar?</h2>
+            <p>Conte-me sobre seu projeto e descubra como a tecnologia pode transformar seu negocio.</p>
+            <a href="https://wa.me/5531997055135?text=Oi%20Tiago!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os." target="_blank" class="btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
-                <span>Fale comigo no WhatsApp</span>
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/tiago-borges-137010219" target="_blank" rel="noopener noreferrer" class="link-button link-linkedin">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <span>Conecte no LinkedIn</span>
+                Iniciar Conversa
             </a>
         </div>
+    </section>
 
-        <!-- Rodapé -->
-        <div class="footer">
-            <p>IA • Automações • Web</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/tiago-borges-137010219" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/5531997055135" target="_blank">WhatsApp</a>
+                <a href="links.html">Todos os Links</a>
+            </div>
+            <p class="footer-copy">Tiago Borges @tiagoborges.dev</p>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
