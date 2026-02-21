@@ -9,19 +9,19 @@ const testimonials = [
     quote: "Ficou muito boa a página! Que incrível! Eu e Bárbara estamos muito felizes.",
     name: "Dani G.",
     role: "Cliente",
-    initials: "DG",
+    photo: "/depoimentos/dani.jpg",
   },
   {
     quote: "Esse é o site mais lindo que já fizemos. Arrasou mesmo, ficou muito bom.",
     name: "Mateus",
     role: "CEO, sobre o site da Casa Juliardi",
-    initials: "M",
+    photo: "/depoimentos/mateus.jpg",
   },
   {
     quote: "Ficou espetacular. Você se superou neste. Ficou bem mais bonito e profissional.",
     name: "Mateus",
     role: "CEO",
-    initials: "M",
+    photo: "/depoimentos/mateus.jpg",
   },
 ];
 ---
@@ -63,9 +63,7 @@ const testimonials = [
             </div>
             <p class="text-gray leading-relaxed mb-4 text-sm">"{t.quote}"</p>
             <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple to-cyan flex items-center justify-center text-xs font-display font-bold text-white flex-shrink-0">
-                {t.initials}
-              </div>
+              <img src={t.photo} alt={t.name} width="36" height="36" class="w-9 h-9 rounded-full object-cover flex-shrink-0" loading="lazy" />
               <div>
                 <div class="font-display font-semibold text-sm">{t.name}</div>
                 <div class="text-gray text-xs">{t.role}</div>
