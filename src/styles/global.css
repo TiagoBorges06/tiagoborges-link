@@ -209,19 +209,21 @@ body {
 .hamburger-icon span:nth-child(2) { opacity: 1; }
 .hamburger-icon span:nth-child(3) { transform: translateY(6px); }
 
-.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(1) {
+/* When checkbox is checked, animate hamburger lines via body > checkbox ~ header label */
+.hamburger-toggle:checked ~ header .hamburger-icon span:nth-child(1) {
   transform: rotate(45deg);
 }
-.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(2) {
+.hamburger-toggle:checked ~ header .hamburger-icon span:nth-child(2) {
   opacity: 0;
 }
-.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(3) {
+.hamburger-toggle:checked ~ header .hamburger-icon span:nth-child(3) {
   transform: rotate(-45deg);
 }
 
 .mobile-menu {
   display: none;
 }
+/* checkbox ~ nav (both children of body/slot) */
 .hamburger-toggle:checked ~ .mobile-menu {
   display: flex;
 }
