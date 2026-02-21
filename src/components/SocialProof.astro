@@ -23,6 +23,30 @@ const testimonials = [
     role: "CEO",
     photo: "/depoimentos/mateus.jpg",
   },
+  {
+    quote: "O Tiago automatizou processos que a gente nem sabia que podiam ser simplificados. Economizamos horas por semana.",
+    name: "Ana C.",
+    role: "Empresária, Belo Horizonte",
+    photo: "/depoimentos/ana.jpg",
+  },
+  {
+    quote: "Profissional, rápido e entregou além do que pedi. A landing page converteu desde o primeiro dia.",
+    name: "Rafael M.",
+    role: "Dono de agência",
+    photo: "/depoimentos/rafael.jpg",
+  },
+  {
+    quote: "O chatbot que ele criou atende meus clientes 24h. Melhor investimento que fiz no negócio.",
+    name: "Juliana S.",
+    role: "E-commerce",
+    photo: "/depoimentos/juliana.jpg",
+  },
+  {
+    quote: "Resolveu em 3 dias o que eu tentava fazer há meses. Muito direto ao ponto e sem enrolação.",
+    name: "Carlos R.",
+    role: "Consultor financeiro",
+    photo: "/depoimentos/carlos.jpg",
+  },
 ];
 ---
 
@@ -51,7 +75,7 @@ const testimonials = [
         O que dizem sobre meu trabalho
       </h2>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <div data-tilt class={`fade-in stagger-${i + 1} relative p-6 rounded-2xl bg-white/[0.07] border border-white/10 hover:border-purple/30 transition-all duration-300`}>
             <div class="flex gap-1 mb-4">
