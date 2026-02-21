@@ -1,0 +1,41 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<section class="py-20 md:py-28 relative overflow-hidden">
+  <!-- Background glow (2 blobs: purple + cyan) -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div data-parallax="-0.06" class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple/20 rounded-full blur-[120px]"></div>
+    <div data-parallax="-0.1" class="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[300px] bg-cyan/10 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <div class="fade-in rounded-3xl bg-white/[0.05] backdrop-blur-sm border border-white/10 p-10 sm:p-14">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mb-6">
+        Quer saber se automação ou IA funciona
+        <span class="bg-gradient-to-r from-purple to-cyan bg-clip-text text-transparent">
+          pro seu negócio?
+        </span>
+      </h2>
+      <p class="text-gray text-lg mb-8 max-w-xl mx-auto">
+        Me chama no WhatsApp. Sem compromisso, sem enrolação. Você sai com um diagnóstico claro do que pode melhorar.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <WhatsAppButton text="Chamar no WhatsApp" />
+        <a
+          href="#servicos"
+          class="inline-flex items-center justify-center gap-2 font-display font-semibold text-white border border-white/20 rounded-full px-8 py-4 text-lg hover:bg-white/5 transition-all duration-300 whitespace-nowrap"
+        >
+          Ver Serviços
+        </a>
+      </div>
+      <p class="text-gray/60 text-sm mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+        <span>Resposta em &lt; 24h</span>
+        <span class="hidden sm:inline">·</span>
+        <span>100% gratuito</span>
+        <span class="hidden sm:inline">·</span>
+        <span>Vagas limitadas</span>
+      </p>
+    </div>
+  </div>
+</section>

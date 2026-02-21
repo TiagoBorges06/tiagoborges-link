@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("/fonts/space-grotesk-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-base: #0d0d0d;
+  --color-navy: #0a1628;
+  --color-navy-light: #1a1a2e;
+  --color-tech-blue: #2563eb;
+  --color-purple: #7b2cbf;
+  --color-cyan: #00d4ff;
+  --color-gray: #b4b4b4;
+  --color-gray-dark: #1e1e2e;
+  --color-whatsapp: #25d366;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-base);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Intersection Observer fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* No JS fallback */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Stagger delays for cascading card animations ─── */
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 100ms; }
+.stagger-3 { transition-delay: 200ms; }
+.stagger-4 { transition-delay: 300ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 500ms; }
+
+/* ─── Noise texture overlay ─── */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─── Gradient border for cards on hover ─── */
+.card-gradient-border {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+.card-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-purple), var(--color-cyan));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Glow shadows ─── */
+.glow-purple {
+  box-shadow: 0 0 40px rgba(123, 44, 191, 0.15), 0 0 80px rgba(123, 44, 191, 0.05);
+}
+.glow-green {
+  box-shadow: 0 0 40px rgba(37, 211, 102, 0.15), 0 0 80px rgba(37, 211, 102, 0.05);
+}
+
+/* ─── Hero fade-up animations with stagger ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up-delay-1 {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.1s;
+}
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.25s;
+}
+.animate-fade-up-delay-3 {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+.animate-fade-up-delay-4 {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.55s;
+}
+
+/* ─── Featured card (Mais popular) ─── */
+.card-featured {
+  position: relative;
+  border-color: rgba(123, 44, 191, 0.4) !important;
+  background: rgba(123, 44, 191, 0.06) !important;
+  box-shadow: 0 0 40px rgba(123, 44, 191, 0.08);
+}
+
+/* ─── Hero photo ring animation ─── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* ─── Mobile hamburger menu (CSS-only, checkbox hack) ─── */
+.hamburger-toggle {
+  display: none;
+}
+.hamburger-icon span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger-icon span:nth-child(1) { transform: translateY(-6px); }
+.hamburger-icon span:nth-child(2) { opacity: 1; }
+.hamburger-icon span:nth-child(3) { transform: translateY(6px); }
+
+.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-toggle:checked ~ .hamburger-label .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+}
+.hamburger-toggle:checked ~ .mobile-menu {
+  display: flex;
+}
+
+/* ─── Cursor glow (desktop only) ─── */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 44, 191, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  transition: opacity 0.3s;
+}
+@media (hover: none) {
+  .cursor-glow { display: none; }
+}
+
+/* ─── Card 3D tilt ─── */
+[data-tilt] {
+  transform: perspective(800px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    circle 250px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(123, 44, 191, 0.1),
+    transparent
+  );
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+[data-tilt]:hover::after {
+  opacity: 1;
+}
+
+/* ─── Parallax elements ─── */
+[data-parallax] {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4 {
+    opacity: 1;
+    animation: none;
+  }
+  .animate-spin-slow {
+    animation: none;
+  }
+  .cursor-glow { display: none; }
+  [data-tilt] {
+    transform: none !important;
+  }
+  [data-tilt]::after { display: none; }
+  [data-parallax] { transform: none !important; }
+}

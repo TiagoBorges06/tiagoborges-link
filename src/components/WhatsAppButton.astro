@@ -1,0 +1,37 @@
+---
+import WhatsAppIcon from "./icons/WhatsApp.astro";
+import ArrowRight from "./icons/ArrowRight.astro";
+
+interface Props {
+  text?: string;
+  message?: string;
+  variant?: "primary" | "secondary";
+  class?: string;
+}
+
+const {
+  text = "Chamar no WhatsApp",
+  message = "Oi Tiago! Vi seu site e quero saber mais sobre seus serviços.",
+  variant = "primary",
+  class: className = "",
+} = Astro.props;
+
+const encodedMessage = encodeURIComponent(message);
+const href = `https://wa.me/5531997055135?text=${encodedMessage}`;
+
+const baseClasses = "inline-flex items-center gap-3 font-display font-semibold rounded-full transition-all duration-300 group whitespace-nowrap";
+const variantClasses = variant === "primary"
+  ? "bg-whatsapp text-white px-8 py-4 text-lg hover:brightness-110 hover:shadow-[0_8px_32px_rgba(37,211,102,0.3)] hover:-translate-y-0.5"
+  : "border border-white/20 text-white px-6 py-3 text-base hover:border-whatsapp/50 hover:shadow-[0_8px_32px_rgba(37,211,102,0.15)] hover:-translate-y-0.5";
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[baseClasses, variantClasses, className]}
+>
+  <WhatsAppIcon class="w-5 h-5" />
+  <span>{text}</span>
+  <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+</a>

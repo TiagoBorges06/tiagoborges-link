@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+---
+
+<Layout title="404 - Página não encontrada | Tiago Borges">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="text-center max-w-md">
+      <div class="font-display font-bold text-8xl bg-gradient-to-r from-purple to-cyan bg-clip-text text-transparent mb-4">
+        404
+      </div>
+      <h1 class="font-display font-bold text-2xl mb-4">
+        Página não encontrada
+      </h1>
+      <p class="text-gray mb-8">
+        A página que você procura não existe ou foi movida. Mas posso te ajudar com outra coisa.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 font-display font-semibold text-white border border-white/20 rounded-xl px-6 py-3 hover:bg-white/5 transition-all duration-300"
+        >
+          Voltar ao início
+        </a>
+        <WhatsAppButton text="Falar no WhatsApp" variant="secondary" />
+      </div>
+    </div>
+  </div>
+</Layout>

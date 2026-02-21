@@ -1,0 +1,65 @@
+---
+const faqs = [
+  {
+    question: "Quanto custa um projeto?",
+    answer: "Depende da complexidade e do escopo. Por isso, ofereço uma conversa gratuita de 15 minutos para entender o que você precisa e dar uma estimativa justa. Sem compromisso.",
+  },
+  {
+    question: "Quanto tempo demora para ficar pronto?",
+    answer: "Projetos simples (landing page, automação única) ficam prontos em cerca de 3 dias. Projetos mais complexos (sistema web, integrações múltiplas) a partir de 2 semanas. Sempre com cronograma definido antes de começar.",
+  },
+  {
+    question: "Funciona para negócio pequeno?",
+    answer: "Sim — na verdade, automações e IA geram mais impacto em equipes enxutas. Se você faz tudo sozinho ou com poucas pessoas, automatizar tarefas repetitivas libera seu tempo para o que realmente importa.",
+  },
+  {
+    question: "E se eu não gostar do resultado?",
+    answer: "Você acompanha o desenvolvimento em cada etapa. Fazemos ajustes ao longo do caminho, não só no final. Nenhuma surpresa na entrega.",
+  },
+  {
+    question: "Preciso entender de tecnologia?",
+    answer: "Não. Meu trabalho é justamente traduzir tecnologia em soluções simples. Você me diz o problema e eu cuido do resto. Entrego tudo funcionando, com treinamento incluso.",
+  },
+  {
+    question: "Você trabalha sozinho?",
+    answer: "Sou CTO e desenvolvedor, então você fala direto comigo — sem intermediários. Para projetos maiores, conto com uma rede de profissionais de confiança que trabalham sob minha supervisão.",
+  },
+];
+---
+
+<section id="faq" class="py-20 md:py-28 bg-navy-light/30">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block font-display font-semibold text-sm text-purple uppercase tracking-wider mb-4">
+        FAQ
+      </span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">
+        Perguntas frequentes
+      </h2>
+    </div>
+
+    <div class="space-y-4 fade-in">
+      {faqs.map((faq) => (
+        <details class="group rounded-2xl bg-white/[0.06] border border-white/10 overflow-hidden hover:border-purple/30 transition-colors">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer list-none font-display font-semibold text-base text-white select-none">
+            <span>{faq.question}</span>
+            <svg
+              class="w-5 h-5 text-gray flex-shrink-0 transition-transform duration-300 group-open:rotate-180"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-gray text-sm leading-relaxed -mt-2">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

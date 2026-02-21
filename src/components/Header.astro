@@ -1,0 +1,63 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-base/80 backdrop-blur-lg border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 bg-purple rounded-lg flex items-center justify-center font-display font-bold text-sm text-white">
+        TB
+      </div>
+      <span class="font-display font-bold text-white text-lg hidden sm:block">
+        Tiago Borges
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#servicos" class="text-gray text-sm hover:text-white transition-colors">Serviços</a>
+      <a href="#cases" class="text-gray text-sm hover:text-white transition-colors">Cases</a>
+      <a href="#processo" class="text-gray text-sm hover:text-white transition-colors">Como Funciona</a>
+      <a href="#faq" class="text-gray text-sm hover:text-white transition-colors">FAQ</a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <div class="hidden md:block">
+      <WhatsAppButton text="WhatsApp" variant="secondary" class="!px-4 !py-2 !text-sm" />
+    </div>
+
+    <!-- Mobile hamburger (CSS-only) -->
+    <div class="md:hidden relative">
+      <input type="checkbox" id="mobile-menu-toggle" class="hamburger-toggle" aria-label="Abrir menu" />
+      <label for="mobile-menu-toggle" class="hamburger-label flex items-center justify-center w-10 h-10 cursor-pointer relative z-50">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
+
+      <!-- Mobile menu -->
+      <nav class="mobile-menu fixed inset-0 top-16 flex-col bg-base/95 backdrop-blur-xl z-40 px-6 pt-8 pb-12">
+        <div class="flex flex-col gap-6">
+          <a href="#servicos" class="text-white text-lg font-display font-semibold hover:text-purple transition-colors" onclick="document.getElementById('mobile-menu-toggle').checked = false">
+            Serviços
+          </a>
+          <a href="#cases" class="text-white text-lg font-display font-semibold hover:text-purple transition-colors" onclick="document.getElementById('mobile-menu-toggle').checked = false">
+            Cases
+          </a>
+          <a href="#processo" class="text-white text-lg font-display font-semibold hover:text-purple transition-colors" onclick="document.getElementById('mobile-menu-toggle').checked = false">
+            Como Funciona
+          </a>
+          <a href="#faq" class="text-white text-lg font-display font-semibold hover:text-purple transition-colors" onclick="document.getElementById('mobile-menu-toggle').checked = false">
+            FAQ
+          </a>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <WhatsAppButton text="Falar no WhatsApp" class="w-full justify-center" />
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,60 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Você me chama no WhatsApp",
+    description: "Me conta o que precisa resolver. Entendo seu negócio, seus desafios e já te dou um direcionamento.",
+  },
+  {
+    number: "02",
+    title: "Diagnóstico e proposta",
+    description: "Analiso seu cenário e proponho a solução ideal — com escopo, prazo e investimento claros.",
+  },
+  {
+    number: "03",
+    title: "Desenvolvimento",
+    description: "Construo a solução com acompanhamento semanal. Você vê o progresso em cada etapa.",
+  },
+  {
+    number: "04",
+    title: "Entrega + suporte completo",
+    description: "Entrego o projeto funcionando, com treinamento e suporte completo.",
+  },
+];
+---
+
+<section id="processo" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block font-display font-semibold text-sm text-purple uppercase tracking-wider mb-4">
+        Processo
+      </span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">
+        Como funciona
+      </h2>
+      <p class="text-gray max-w-2xl mx-auto">
+        Do primeiro contato à entrega, tudo é transparente e sem surpresas.
+      </p>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto">
+
+      <div class="space-y-12">
+        {steps.map((step, i) => (
+          <div class={`fade-in stagger-${i + 1} relative flex items-start gap-6 md:gap-12 ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+            <!-- Number circle -->
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple/20 border-2 border-purple/60 flex items-center justify-center font-display font-bold text-purple text-sm z-10">
+              {step.number}
+            </div>
+
+            <!-- Content -->
+            <div data-tilt class={`relative flex-1 p-6 rounded-2xl bg-white/[0.06] border border-white/10 ${i % 2 === 1 ? "md:text-right" : ""}`}>
+              <h3 class="font-display font-bold text-lg mb-2">{step.title}</h3>
+              <p class="text-gray text-sm leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+import LayoutIcon from "./icons/LayoutIcon.astro";
+import Zap from "./icons/Zap.astro";
+import Bot from "./icons/Bot.astro";
+import Code from "./icons/Code.astro";
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+const services = [
+  {
+    icon: "layout",
+    title: "Sites e Landing Pages",
+    benefit: "Presença online que converte visitantes em clientes",
+    description: "Páginas rápidas, otimizadas para Google e pensadas para gerar contatos e vendas.",
+    highlights: ["Performance 100/100", "SEO otimizado", "Design responsivo"],
+    featured: false,
+  },
+  {
+    icon: "zap",
+    title: "Automações",
+    benefit: "Elimine tarefas repetitivas e economize horas por semana",
+    description: "Integro ferramentas do seu negócio para que trabalhem juntas sem intervenção manual.",
+    highlights: ["Integração de sistemas", "Fluxos automáticos", "Redução de erros"],
+    featured: false,
+  },
+  {
+    icon: "bot",
+    title: "Integrações com IA",
+    benefit: "Atendimento 24h sem contratar mais gente",
+    description: "Chatbots e assistentes inteligentes que atendem, qualificam e convertem clientes.",
+    highlights: ["Chatbots inteligentes", "Respostas 24/7", "Qualificação automática"],
+    featured: true,
+  },
+  {
+    icon: "code",
+    title: "Sistemas Web",
+    benefit: "Dashboards e ferramentas sob medida pro seu negócio",
+    description: "Sistemas customizados que resolvem problemas específicos da sua operação.",
+    highlights: ["Sob medida", "Dashboards", "APIs e integrações"],
+    featured: false,
+  },
+];
+
+const iconMap: Record<string, any> = { layout: LayoutIcon, zap: Zap, bot: Bot, code: Code };
+---
+
+<section id="servicos" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block font-display font-semibold text-sm text-purple uppercase tracking-wider mb-4">
+        Serviços
+      </span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">
+        Soluções que geram resultado real
+      </h2>
+      <p class="text-gray max-w-2xl mx-auto">
+        Cada projeto é pensado para resolver um problema específico do seu negócio — com foco em retorno, não em complexidade.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      {services.map((service, i) => {
+        const IconComponent = iconMap[service.icon];
+        return (
+          <div data-tilt class={`fade-in stagger-${i + 1} relative group p-8 rounded-2xl bg-white/[0.05] border border-white/8 hover:border-purple/30 transition-all duration-300 ${service.featured ? "card-featured" : ""}`}>
+            {service.featured && (
+              <span class="inline-block font-display font-semibold text-xs bg-purple/20 text-purple border border-purple/30 rounded-full px-3 py-1 mb-4">
+                Mais popular
+              </span>
+            )}
+            <div class="w-14 h-14 rounded-xl bg-purple/10 border border-purple/20 flex items-center justify-center mb-5 group-hover:bg-purple/20 transition-colors">
+              <IconComponent class="w-7 h-7 text-purple" />
+            </div>
+            <h3 class="font-display font-bold text-xl mb-2">{service.title}</h3>
+            <p class="text-cyan font-medium text-sm mb-3">{service.benefit}</p>
+            <p class="text-gray text-sm leading-relaxed mb-4">{service.description}</p>
+            <ul class="space-y-2">
+              {service.highlights.map((h) => (
+                <li class="flex items-center gap-2 text-sm text-gray">
+                  <svg class="w-4 h-4 text-whatsapp flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Intermediate CTA -->
+    <div class="text-center mt-12 fade-in">
+      <p class="text-gray mb-4">Não tem certeza de qual serviço precisa?</p>
+      <WhatsAppButton text="Falar com Tiago — é grátis" variant="secondary" />
+    </div>
+  </div>
+</section>

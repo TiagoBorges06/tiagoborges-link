@@ -1,0 +1,160 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = "Automatizo processos e crio sites que geram resultado. IA, automações e desenvolvimento web para empresários que querem escalar.",
+  canonical,
+} = Astro.props;
+
+const site = "https://tiagoborges.tech";
+const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Tiago Borges | CTO" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Tiago Borges",
+      "description": description,
+      "url": site,
+      "telephone": "+55-31-99705-5135",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "serviceType": ["Desenvolvimento Web", "Automações", "Integrações com IA", "Sistemas Web"],
+      "priceRange": "$$"
+    })} />
+  </head>
+  <body class="noise-overlay">
+    <slot />
+
+    <!-- Minimal IntersectionObserver for fade-in (~300 bytes) -->
+    <script>
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        document.querySelectorAll(".fade-in").forEach((el) => io.observe(el));
+      } else {
+        document.querySelectorAll(".fade-in").forEach((el) => el.classList.add("visible"));
+      }
+    </script>
+
+    <!-- Interactive animations: cursor glow + card tilt 3D + scroll parallax (~1.5KB) -->
+    <script>
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isTouch = "ontouchstart" in window;
+
+      if (!prefersReduced) {
+        // ── Cursor glow (desktop only) ──
+        if (!isTouch) {
+          const glow = document.createElement("div");
+          glow.className = "cursor-glow";
+          document.body.appendChild(glow);
+          let mx = -500, my = -500, gx = -500, gy = -500;
+          document.addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+          (function tick() {
+            gx += (mx - gx) * 0.12;
+            gy += (my - gy) * 0.12;
+            glow.style.transform = `translate(${gx - 200}px, ${gy - 200}px)`;
+            requestAnimationFrame(tick);
+          })();
+        }
+
+        // ── Card 3D tilt + mouse glow ──
+        document.querySelectorAll("[data-tilt]").forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width;
+            const y = (e.clientY - r.top) / r.height;
+            card.style.setProperty("--tilt-x", `${(y - 0.5) * -8}deg`);
+            card.style.setProperty("--tilt-y", `${(x - 0.5) * 8}deg`);
+            card.style.setProperty("--glow-x", `${x * 100}%`);
+            card.style.setProperty("--glow-y", `${y * 100}%`);
+          }, { passive: true });
+          card.addEventListener("mouseleave", () => {
+            card.style.setProperty("--tilt-x", "0deg");
+            card.style.setProperty("--tilt-y", "0deg");
+          });
+        });
+
+        // ── Scroll parallax ──
+        const pEls = document.querySelectorAll("[data-parallax]");
+        if (pEls.length) {
+          let ticking = false;
+          window.addEventListener("scroll", () => {
+            if (!ticking) {
+              ticking = true;
+              requestAnimationFrame(() => {
+                const sy = window.scrollY;
+                pEls.forEach((el) => {
+                  const speed = parseFloat(el.dataset.parallax);
+                  el.style.transform = `translateY(${sy * speed}px)`;
+                });
+                ticking = false;
+              });
+            }
+          }, { passive: true });
+        }
+      }
+    </script>
+
+    <!-- No-JS fallback: show everything -->
+    <noscript>
+      <style>
+        .fade-in { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </body>
+</html>
