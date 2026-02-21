@@ -27,9 +27,14 @@
   <!-- Gradient line top -->
   <rect x="0" y="0" width="1200" height="4" fill="url(#purpleCyan)"/>
 
-  <!-- Logo -->
-  <rect x="80" y="70" width="44" height="44" rx="10" fill="#7b2cbf"/>
-  <text x="102" y="100" font-family="system-ui, sans-serif" font-weight="700" font-size="20" fill="white" text-anchor="middle">TB</text>
+  <!-- Logo mark -->
+  <g transform="translate(70, 60) scale(0.55)">
+    <path d="M5 50 L30 15 L38 21 L16 50 L38 79 L30 85 Z" fill="url(#purpleCyan)" opacity="0.7"/>
+    <path d="M95 50 L70 15 L62 21 L84 50 L62 79 L70 85 Z" fill="url(#purpleCyan)"/>
+    <rect x="38" y="32" width="24" height="5" rx="2.5" fill="white"/>
+    <rect x="48" y="32" width="5" height="42" rx="2.5" fill="white"/>
+    <circle cx="80" cy="78" r="4.5" fill="#00d4ff"/>
+  </g>
   <text x="140" y="100" font-family="system-ui, sans-serif" font-weight="700" font-size="22" fill="white">Tiago Borges</text>
 
   <!-- Main heading -->
@@ -56,9 +61,12 @@
   <!-- URL -->
   <text x="80" y="580" font-family="system-ui, sans-serif" font-weight="600" font-size="18" fill="#7b2cbf">tiagoborges.tech</text>
 
-  <!-- Profile photo placeholder circle -->
-  <circle cx="950" cy="315" r="132" fill="none" stroke="url(#purpleCyan)" stroke-width="3" stroke-dasharray="8 6" opacity="0.4"/>
-  <circle cx="950" cy="315" r="126" fill="#1a1a2e"/>
-  <text x="950" y="305" font-family="system-ui, sans-serif" font-weight="700" font-size="48" fill="url(#purpleCyan)" text-anchor="middle">TB</text>
-  <text x="950" y="345" font-family="system-ui, sans-serif" font-weight="500" font-size="18" fill="#b4b4b4" text-anchor="middle">CTO &amp; Dev</text>
+  <!-- Logo mark large -->
+  <g transform="translate(870, 230) scale(1.7)">
+    <path d="M5 50 L30 15 L38 21 L16 50 L38 79 L30 85 Z" fill="url(#purpleCyan)" opacity="0.7"/>
+    <path d="M95 50 L70 15 L62 21 L84 50 L62 79 L70 85 Z" fill="url(#purpleCyan)"/>
+    <rect x="38" y="32" width="24" height="5" rx="2.5" fill="white"/>
+    <rect x="48" y="32" width="5" height="42" rx="2.5" fill="white"/>
+    <circle cx="80" cy="78" r="4.5" fill="#00d4ff"/>
+  </g>
 </svg>

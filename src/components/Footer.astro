@@ -7,10 +7,20 @@ const currentYear = new Date().getFullYear();
     <div class="grid sm:grid-cols-3 gap-8 mb-8">
       <!-- Brand -->
       <div>
-        <div class="flex items-center gap-2 mb-3">
-          <div class="w-8 h-8 bg-purple rounded-lg flex items-center justify-center font-display font-bold text-sm text-white">
-            TB
-          </div>
+        <div class="flex items-center gap-3 mb-3">
+          <svg class="w-9 h-9 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7b2cbf"/>
+                <stop offset="100%" stop-color="#00d4ff"/>
+              </linearGradient>
+            </defs>
+            <path d="M5 50 L30 15 L38 21 L16 50 L38 79 L30 85 Z" fill="url(#footerLogoGrad)" opacity="0.7"/>
+            <path d="M95 50 L70 15 L62 21 L84 50 L62 79 L70 85 Z" fill="url(#footerLogoGrad)"/>
+            <rect x="38" y="32" width="24" height="5" rx="2.5" fill="white"/>
+            <rect x="48" y="32" width="5" height="42" rx="2.5" fill="white"/>
+            <circle cx="80" cy="78" r="4.5" fill="#00d4ff"/>
+          </svg>
           <span class="font-display font-bold text-white">Tiago Borges</span>
         </div>
         <p class="text-gray text-sm">
