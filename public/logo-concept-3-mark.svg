@@ -1,0 +1,38 @@
+<svg width="520" height="160" viewBox="0 0 520 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7b2cbf"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="grad3t" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7b2cbf"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark background for preview -->
+  <rect width="520" height="160" rx="12" fill="#0d0d0d"/>
+
+  <!-- Geometric mark: code brackets + T -->
+  <g transform="translate(25, 30)">
+    <!-- Left bracket -->
+    <path d="M0 50 L25 15 L33 21 L11 50 L33 79 L25 85 Z" fill="url(#grad3)" opacity="0.7"/>
+    <!-- Right bracket -->
+    <path d="M80 50 L55 15 L47 21 L69 50 L47 79 L55 85 Z" fill="url(#grad3)"/>
+    <!-- T crossbar -->
+    <rect x="24" y="30" width="32" height="5" rx="2.5" fill="white"/>
+    <!-- T stem -->
+    <rect x="37" y="30" width="5" height="45" rx="2.5" fill="white"/>
+    <!-- Dot accent -->
+    <circle cx="68" cy="78" r="4.5" fill="#00d4ff"/>
+  </g>
+
+  <!-- Name -->
+  <text x="135" y="72" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="38" fill="white" letter-spacing="-0.5">Tiago Borges</text>
+
+  <!-- Thin line separator -->
+  <rect x="135" y="82" width="55" height="1.5" rx="0.75" fill="url(#grad3t)" opacity="0.5"/>
+
+  <!-- Role -->
+  <text x="137" y="102" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="13" fill="url(#grad3t)" letter-spacing="3">CTO &amp; DEVELOPER</text>
+</svg>

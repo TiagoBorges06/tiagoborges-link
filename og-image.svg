@@ -1,0 +1,72 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    <linearGradient id="purpleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7b2cbf"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7b2cbf" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7b2cbf" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="950" cy="315" r="130"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Glow blobs -->
+  <circle cx="200" cy="100" r="300" fill="url(#purpleGlow)"/>
+  <circle cx="900" cy="500" r="250" fill="#2563eb" opacity="0.06"/>
+
+  <!-- Gradient line top -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#purpleCyan)"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(70, 60) scale(0.55)">
+    <path d="M5 50 L30 15 L38 21 L16 50 L38 79 L30 85 Z" fill="url(#purpleCyan)" opacity="0.7"/>
+    <path d="M95 50 L70 15 L62 21 L84 50 L62 79 L70 85 Z" fill="url(#purpleCyan)"/>
+    <rect x="38" y="32" width="24" height="5" rx="2.5" fill="white"/>
+    <rect x="48" y="32" width="5" height="42" rx="2.5" fill="white"/>
+    <circle cx="80" cy="78" r="4.5" fill="#00d4ff"/>
+  </g>
+  <text x="140" y="100" font-family="system-ui, sans-serif" font-weight="700" font-size="22" fill="white">Tiago Borges</text>
+
+  <!-- Main heading -->
+  <text x="80" y="240" font-family="system-ui, sans-serif" font-weight="700" font-size="56" fill="white">Automatizo processos</text>
+  <text x="80" y="310" font-family="system-ui, sans-serif" font-weight="700" font-size="56" fill="white">e crio sites que</text>
+  <text x="80" y="380" font-family="system-ui, sans-serif" font-weight="700" font-size="56" fill="url(#purpleCyan)">geram resultado</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="440" font-family="system-ui, sans-serif" font-weight="400" font-size="22" fill="#b4b4b4">IA, automações e desenvolvimento web</text>
+
+  <!-- Tags -->
+  <rect x="80" y="490" width="140" height="36" rx="18" fill="white" opacity="0.05" stroke="white" stroke-opacity="0.1"/>
+  <text x="150" y="514" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#b4b4b4" text-anchor="middle">Landing Pages</text>
+
+  <rect x="236" y="490" width="130" height="36" rx="18" fill="white" opacity="0.05" stroke="white" stroke-opacity="0.1"/>
+  <text x="301" y="514" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#b4b4b4" text-anchor="middle">Automações</text>
+
+  <rect x="382" y="490" width="155" height="36" rx="18" fill="white" opacity="0.05" stroke="white" stroke-opacity="0.1"/>
+  <text x="459" y="514" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#b4b4b4" text-anchor="middle">Integrações com IA</text>
+
+  <rect x="553" y="490" width="140" height="36" rx="18" fill="white" opacity="0.05" stroke="white" stroke-opacity="0.1"/>
+  <text x="623" y="514" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#b4b4b4" text-anchor="middle">Sistemas Web</text>
+
+  <!-- URL -->
+  <text x="80" y="580" font-family="system-ui, sans-serif" font-weight="600" font-size="18" fill="#7b2cbf">tiagoborges.tech</text>
+
+  <!-- Logo mark large -->
+  <g transform="translate(870, 230) scale(1.7)">
+    <path d="M5 50 L30 15 L38 21 L16 50 L38 79 L30 85 Z" fill="url(#purpleCyan)" opacity="0.7"/>
+    <path d="M95 50 L70 15 L62 21 L84 50 L62 79 L70 85 Z" fill="url(#purpleCyan)"/>
+    <rect x="38" y="32" width="24" height="5" rx="2.5" fill="white"/>
+    <rect x="48" y="32" width="5" height="42" rx="2.5" fill="white"/>
+    <circle cx="80" cy="78" r="4.5" fill="#00d4ff"/>
+  </g>
+</svg>
