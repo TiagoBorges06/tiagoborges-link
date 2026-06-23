@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'JetBrains Mono','SF Mono',ui-monospace,monospace">
+  <defs>
+    <radialGradient id="glow" cx="28%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#D4541E" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#D4541E" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#F2EDE4" fill-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0B0A07"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- eyebrow -->
+  <g transform="translate(80,118)">
+    <rect x="0" y="-12" width="26" height="3" rx="1.5" fill="#D4541E"/>
+    <text x="42" y="0" font-size="22" letter-spacing="5" fill="#E8763F">MÉTODO ZERO CÓDIGO · VOL. 01</text>
+  </g>
+
+  <!-- title -->
+  <text x="78" y="250" font-family="'Bricolage Grotesque',sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#F2EDE4">Zero Código,</text>
+  <text x="78" y="358" font-family="'Bricolage Grotesque',sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#E8763F">LP Profissional</text>
+
+  <!-- subtitle -->
+  <text x="80" y="430" font-size="27" fill="#9C9487">Crie — e cobre R$3.000 por — landing pages com IA.</text>
+  <text x="80" y="468" font-size="27" fill="#9C9487">Sem escrever uma linha de código.</text>
+
+  <!-- price chip -->
+  <g transform="translate(80,520)">
+    <rect width="232" height="64" rx="12" fill="#D4541E"/>
+    <text x="26" y="42" font-size="30" font-weight="700" fill="#ffffff">acesso · R$67</text>
+  </g>
+
+  <!-- author -->
+  <text x="338" y="560" font-size="22" fill="#6E665B">Tiago Borges · @THBORGESSILVA</text>
+
+  <!-- terminal glyph card (right) -->
+  <g transform="translate(880,150)" opacity="0.96">
+    <rect width="250" height="330" rx="16" fill="#17140D" stroke="#F2EDE4" stroke-opacity="0.12"/>
+    <rect width="250" height="44" rx="16" fill="#000000" fill-opacity="0.25"/>
+    <rect y="30" width="250" height="14" fill="#17140D"/>
+    <circle cx="24" cy="22" r="6" fill="#ff5f57"/>
+    <circle cx="46" cy="22" r="6" fill="#febc2e"/>
+    <circle cx="68" cy="22" r="6" fill="#28c840"/>
+    <text x="24" y="92" font-size="17" fill="#9DBF6F">tiago@vantt <tspan fill="#9C9487">%</tspan></text>
+    <text x="24" y="120" font-size="17" fill="#F2EDE4">claude "crie a</text>
+    <text x="24" y="146" font-size="17" fill="#F2EDE4">landing page"</text>
+    <text x="24" y="190" font-size="16" fill="#9C9487">&gt; escrevendo copy…</text>
+    <text x="24" y="216" font-size="16" fill="#9C9487">&gt; design responsivo…</text>
+    <text x="24" y="250" font-size="16" fill="#9DBF6F">&gt; ✓ pronto em 4min</text>
+    <path d="M24 286 l16 16 -16 16" fill="none" stroke="#D4541E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="300" width="14" height="3" fill="#D4541E"/>
+  </g>
+</svg>
