@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zero Código, LP Profissional — Crie e cobre R$3.000 por landing page usando IA</title>
-<meta name="description" content="O método para criar — e cobrar R$3.000 por — landing pages profissionais usando Inteligência Artificial. Sem escrever uma linha de código. Do zero absoluto ao primeiro pagamento.">
+<title>Zero Código, LP Profissional · Crie sites que vendem com IA e cobre R$3.000</title>
+<meta name="description" content="Crie páginas de vendas profissionais usando Inteligência Artificial e cobre R$3.000 por cada uma. Sem precisar saber programar. Mesmo que você já tenha tentado antes e desistido.">
 <meta name="theme-color" content="#0B0A07">
 <link rel="canonical" href="https://tiagoborges.tech/lp/">
 
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tiagoborges.tech/lp/">
 <meta property="og:title" content="Zero Código, LP Profissional">
-<meta property="og:description" content="Crie — e cobre R$3.000 por — landing pages profissionais usando IA. Sem escrever uma linha de código.">
+<meta property="og:description" content="Crie páginas de vendas com IA e cobre R$3.000 por cada uma. Sem saber programar.">
 <meta property="og:image" content="https://tiagoborges.tech/lp/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,528 +21,450 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Zero Código, LP Profissional">
-<meta name="twitter:description" content="Crie — e cobre R$3.000 por — landing pages profissionais usando IA. Sem escrever uma linha de código.">
+<meta name="twitter:description" content="Crie páginas de vendas com IA e cobre R$3.000 por cada uma. Sem saber programar.">
 <meta name="twitter:image" content="https://tiagoborges.tech/lp/og-image.png">
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap">
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<!-- Fonts: Clash Display (títulos, ousada) + Satoshi (corpo, legível) — Fontshare -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700,900&display=swap">
+<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700,900&display=swap"></noscript>
 
 <link rel="stylesheet" href="styles.css">
 
-<!-- Product schema (sem reviews — depoimentos ainda não são reais) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Zero Código, LP Profissional",
-  "description": "O método para criar e cobrar R$3.000 por landing page profissional usando IA, sem escrever código.",
-  "brand": { "@type": "Brand", "name": "Tiago Borges" },
-  "offers": {
-    "@type": "Offer",
-    "price": "67.00",
-    "priceCurrency": "BRL",
-    "availability": "https://schema.org/InStock"
-  }
+  "description": "Método para criar páginas de vendas com IA e cobrar R$3.000 por cada uma, sem saber programar.",
+  "brand": { "@type": "Brand", "name": "Tiago Hudson" },
+  "offers": { "@type": "Offer", "price": "67.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock" }
 }
 </script>
 </head>
 
 <body>
 
-<!-- ════ SCROLL PROGRESS (IDE status loader) ════ -->
 <div class="ide-progress" id="ideProgress" aria-hidden="true"></div>
+<div class="fx-glow" aria-hidden="true"></div>
 
-<!-- ════ FX LAYERS ════ -->
-<div class="fx-grid" aria-hidden="true"></div>
-<div class="fx-rain" id="fxRain" aria-hidden="true"></div>
-<div class="fx-vignette" aria-hidden="true"></div>
-
-<!-- ════ NAV — IDE TAB BAR ════ -->
+<!-- ════ NAV ════ -->
 <header class="nav" id="nav">
-  <a href="#topo" class="nav-brand" aria-label="zero-codigo — ir para o início">
-    <span class="nav-prompt">&gt;_</span>
-    <span class="nav-brandtext">zero-codigo</span>
+  <a href="#topo" class="nav-brand" aria-label="Zero Código, início">
+    <span class="nav-dot" aria-hidden="true"></span>
+    Zero Código
   </a>
   <nav class="nav-tabs" aria-label="Seções">
-    <a href="#metodo" class="nav-tab">método</a>
-    <a href="#conteudo" class="nav-tab">conteúdo</a>
-    <a href="#numeros" class="nav-tab">números</a>
-    <a href="#oferta" class="nav-tab">oferta</a>
+    <a href="#provas" class="nav-tab">Provas</a>
+    <a href="#metodo" class="nav-tab">Como funciona</a>
+    <a href="#oferta" class="nav-tab">Oferta</a>
   </nav>
-  <a href="[LINK_HOTMART]" class="nav-cta">
-    Garantir — R$67
-  </a>
 </header>
 
 <main id="topo">
 
-<!-- ════════════════════════════════════════════════
-     1 · HERO — BOOT / TERMINAL
-═════════════════════════════════════════════════ -->
+<!-- ════ DOBRA 1 · PROMESSA ════ -->
 <section class="hero" id="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-wrap">
+    <span class="tag">MÉTODO ZERO CÓDIGO</span>
 
-    <p class="eyebrow eyebrow--accent">
-      <span class="eyebrow-line"></span>
-      MÉTODO ZERO CÓDIGO · VOL. 01
-    </p>
+    <h1 class="hero-title">Crie sites que vendem com Inteligência Artificial e cobre <span class="k">R$3.000</span> por cada um.</h1>
 
-    <!-- Terminal -->
-    <div class="terminal" id="heroTerminal">
-      <div class="terminal-bar">
-        <span class="t-dot t-dot--r"></span>
-        <span class="t-dot t-dot--y"></span>
-        <span class="t-dot t-dot--g"></span>
-        <span class="terminal-title">claude-code — zsh — 80×24</span>
-      </div>
-      <div class="terminal-body">
-        <p class="t-line">
-          <span class="t-prompt">tiago@vantt</span><span class="t-path"> ~/projetos</span>
-          <span class="t-sign"> %</span>
-          <span class="t-cmd" id="heroCmd"></span><span class="t-caret" id="heroCaret"></span>
-        </p>
-        <div class="t-out" id="heroOut">
-          <p class="t-resp">&gt; analisando a oferta do cliente<span class="t-dim">...</span></p>
-          <p class="t-resp">&gt; escrevendo copy de alta conversão<span class="t-dim">...</span></p>
-          <p class="t-resp">&gt; aplicando design responsivo<span class="t-dim">...</span></p>
-          <p class="t-resp t-ok">&gt; <span class="ok-check"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> landing page pronta em 4min12s</p>
-        </div>
-      </div>
-    </div>
-
-    <h1 class="hero-title">Zero Código,<br><span class="hl">LP Profissional</span></h1>
+    <p class="hero-kicker">Sem escrever uma linha de código.</p>
 
     <p class="hero-sub">
-      O método para criar — e cobrar <strong>R$3.000</strong> por — landing pages
-      profissionais usando Inteligência Artificial.
-      <span class="nowrap-d">Sem escrever uma linha de código.</span>
+      Você cria a página, entrega pro cliente e <b>recebe</b>.
+      Mesmo que você <b>nunca</b> tenha programado na vida.
     </p>
 
-    <div class="hero-actions">
-      <a href="[LINK_HOTMART]" class="btn btn--primary btn--lg">
-        Rodar o método — R$67
-        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a href="#metodo" class="btn btn--ghost">ver como funciona</a>
-    </div>
+    <ul class="chips" aria-label="O que você ganha">
+      <li class="chip"><span class="chip-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Uma habilidade que vale <b>R$3.000</b></li>
+      <li class="chip"><span class="chip-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Pronto em <b>menos de 1 dia</b></li>
+      <li class="chip"><span class="chip-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Sem precisar <b>saber programar</b></li>
+    </ul>
 
-    <p class="hero-micro">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.6 2.4 4v3.4c0 3.3 2.3 6.1 5.6 6.9 3.3-.8 5.6-3.6 5.6-6.9V4L8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.6 8 7.3 9.7 10.6 6.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Acesso imediato · Garantia de 7 dias · Pagamento seguro
-    </p>
-  </div>
+    <figure class="hero-mock">
+      <img src="capa.png" alt="Ebook Zero Código, LP Profissional" loading="eager" width="300" height="424">
+      <figcaption>O passo a passo completo, em PDF. Você lê no celular ou no computador.</figcaption>
+    </figure>
 
-  <!-- command marquee -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="mq">$ claude "crie um hero que converte"</span>
-      <span class="mq">$ deploy --netlify</span>
-      <span class="mq">$ invoice --valor 3000</span>
-      <span class="mq">$ npm run profit</span>
-      <span class="mq">$ claude "ajuste o mobile"</span>
-      <span class="mq">$ cliente --status fechado</span>
-      <span class="mq">$ claude "crie um hero que converte"</span>
-      <span class="mq">$ deploy --netlify</span>
-      <span class="mq">$ invoice --valor 3000</span>
-      <span class="mq">$ npm run profit</span>
-      <span class="mq">$ claude "ajuste o mobile"</span>
-      <span class="mq">$ cliente --status fechado</span>
-    </div>
+    <p class="trust"><span class="trust-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg></span> Acesso na hora. Garantia de 7 dias. Pagamento seguro.</p>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     2 · PROBLEMA — O DIFF (antes)
-═════════════════════════════════════════════════ -->
-<section class="section problem" id="problema">
+<!-- ════ DOBRA 2 · PROVAS DO MERCADO ════ -->
+<section class="section" id="provas">
   <div class="wrap">
-    <p class="eyebrow reveal">// O PONTO DE PARTIDA</p>
-    <h2 class="section-title reveal">
-      Existe um mercado pagando R$2.000 a R$5.000 por projeto.
-      <span class="muted-inline">E você estava do lado de fora.</span>
-    </h2>
+    <span class="tag tag--soft">ISSO NÃO É CONVERSA DE VENDEDOR</span>
+    <h2 class="title">Não é promessa. É <span class="k">o mercado</span> falando.</h2>
+    <p class="lead">Antes de você desconfiar, e tudo bem desconfiar, olha o que dizem as fontes que não têm nada pra te vender:</p>
 
-    <div class="problem-grid">
-      <div class="problem-copy reveal">
-        <p>Um mercado com <strong>mais demanda do que profissionais</strong> para atender. Empresas que precisam de landing pages e não têm quem faça.</p>
-        <p>A Inteligência Artificial não apenas facilitou a programação. Ela <strong>eliminou a necessidade de saber programar</strong> para criar soluções digitais profissionais.</p>
-        <p class="problem-punch">A barreira nunca foi a programação.<br>Foi a informação.</p>
-      </div>
+    <div class="proof-grid">
+      <figure class="proof reveal">
+        <div class="proof-shot">
+          <div class="shot-bar"><span class="d d-r"></span><span class="d d-y"></span><span class="d d-g"></span><span class="shot-url">ecommerceupdate.com.br</span></div>
+          <div class="shot-img"><img src="prova-1-nocode.png" alt="Notícia: 70% dos aplicativos vão usar tecnologia sem código até 2025" loading="lazy" onerror="this.closest('.shot-img').classList.add('empty')"><span class="shot-ph">print da notícia<br><b>(em breve)</b></span></div>
+        </div>
+        <figcaption class="proof-cap"><b class="k">70%</b> dos sites e aplicativos já vão ser feitos <b>sem programar</b>. Criar sem código virou o normal.</figcaption>
+      </figure>
 
-      <!-- diff -->
-      <div class="diff reveal" aria-label="Comparação: caminho antigo versus o método">
-        <div class="diff-bar">
-          <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-          <span class="terminal-title">o-velho-caminho.diff</span>
+      <figure class="proof reveal">
+        <div class="proof-shot">
+          <div class="shot-bar"><span class="d d-r"></span><span class="d d-y"></span><span class="d d-g"></span><span class="shot-url">cnnbrasil.com.br</span></div>
+          <div class="shot-img"><img src="prova-2-cnn.png" alt="Notícia da CNN Brasil: 3 em cada 4 profissionais acreditam que a IA vai mexer no emprego deles" loading="lazy" onerror="this.closest('.shot-img').classList.add('empty')"><span class="shot-ph">print da notícia<br><b>(em breve)</b></span></div>
         </div>
-        <div class="diff-body">
-          <p class="diff-line diff-rem"><span>-</span> anos de estudo em programação</p>
-          <p class="diff-line diff-rem"><span>-</span> cursos caros que você abandona</p>
-          <p class="diff-line diff-rem"><span>-</span> esperar (ou pagar caro) por um dev</p>
-          <p class="diff-line diff-rem"><span>-</span> ficar do lado de fora do mercado</p>
-          <p class="diff-line diff-add"><span>+</span> uma instrução certa pra IA</p>
-          <p class="diff-line diff-add"><span>+</span> menos de 24 horas até o arquivo</p>
-          <p class="diff-line diff-add"><span>+</span> uma LP nível agência de R$10.000</p>
-          <p class="diff-line diff-add"><span>+</span> R$2.500 na conta por entrega</p>
+        <figcaption class="proof-cap"><b class="k">3 em cada 4</b> brasileiros têm medo da IA mexer no emprego. O segredo é <b>aprender a usar</b> a IA antes dos outros.</figcaption>
+      </figure>
+
+      <figure class="proof reveal">
+        <div class="proof-shot">
+          <div class="shot-bar"><span class="d d-r"></span><span class="d d-y"></span><span class="d d-g"></span><span class="shot-url">michaelpage.com.br</span></div>
+          <div class="shot-img"><img src="prova-3-pagegroup.png" alt="Pesquisa sobre inteligência artificial e empregos no Brasil" loading="lazy" onerror="this.closest('.shot-img').classList.add('empty')"><span class="shot-ph">print da notícia<br><b>(em breve)</b></span></div>
         </div>
-      </div>
+        <figcaption class="proof-cap">A maior pesquisa do país confirma: a virada da IA <b>já começou</b>. Quem entra agora <b>sai na frente</b>.</figcaption>
+      </figure>
+
+      <figure class="proof reveal">
+        <div class="proof-shot">
+          <div class="shot-bar"><span class="d d-r"></span><span class="d d-y"></span><span class="d d-g"></span><span class="shot-url">exame.com</span></div>
+          <div class="shot-img"><img src="prova-4-exame.png" alt="Notícia da Exame sobre profissionais e inteligência artificial" loading="lazy" onerror="this.closest('.shot-img').classList.add('empty')"><span class="shot-ph">print da notícia<br><b>(em breve)</b></span></div>
+        </div>
+        <figcaption class="proof-cap">As ferramentas de IA <b>já existem</b> e qualquer um pode usar. O que falta pra maioria é alguém ensinando <b>o jeito certo</b>.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     3 · A VIRADA — LIVE BUILD (assinatura, sticky split)
-═════════════════════════════════════════════════ -->
-<section class="build" id="metodo">
-  <div class="build-sticky">
-    <div class="wrap build-head">
-      <p class="eyebrow eyebrow--accent">// A VIRADA</p>
-      <h2 class="section-title build-title">
-        Você não vai aprender a programar.<br>
-        <span class="hl">Você vai aprender a pedir.</span>
-      </h2>
-    </div>
-
-    <div class="wrap">
-      <div class="editor" id="editor">
-        <div class="editor-bar">
-          <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-          <span class="terminal-title">landing-page.html — claude-code</span>
-          <span class="editor-status" id="editorStatus">escrevendo…</span>
-        </div>
-        <div class="editor-split">
-          <!-- CODE -->
-          <div class="pane pane-code" aria-hidden="true">
-            <div class="code-gutter" id="codeGutter"></div>
-            <pre class="code-pre"><code id="codeArea"></code></pre>
-          </div>
-          <!-- PREVIEW -->
-          <div class="pane pane-preview">
-            <div class="mini-frame">
-              <div class="mini-chrome" aria-hidden="true">
-                <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-                <span class="mini-url">zero-codigo.html</span>
-              </div>
-              <div class="mini" id="mini">
-                <span class="mini-tag" data-block="1">MÉTODO ZERO CÓDIGO</span>
-                <h3 class="mini-title" data-block="2">Zero Código,<br>LP Profissional</h3>
-                <p class="mini-sub" data-block="3">Crie LPs profissionais com IA e cobre R$3.000 por projeto.</p>
-                <span class="mini-btn" data-block="4">Quero o ebook</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="build-caption reveal">
-        Da primeira instrução ao arquivo pronto pra entregar:
-        <strong>menos de 24 horas</strong>. A geração pela IA?
-        <strong>5 a 15 minutos</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════
-     4 · CONTEÚDO — FILE TREE (densidade, H08)
-═════════════════════════════════════════════════ -->
-<section class="section content" id="conteudo">
+<!-- ════ DOBRA 3 · AMPLIFICAÇÃO DA DOR ════ -->
+<section class="section section--alt" id="dor">
   <div class="wrap">
-    <p class="eyebrow reveal">// O QUE VOCÊ INSTALA</p>
-    <h2 class="section-title reveal">7 capítulos. Do zero absoluto ao primeiro pagamento.</h2>
-    <p class="section-lead reveal">Cada arquivo é um passo. Clique pra ver o que tem dentro.</p>
+    <span class="tag tag--soft">TALVEZ VOCÊ JÁ TENHA SENTIDO ISSO</span>
+    <h2 class="title">Você já tentou. E <span class="k">travou</span>.</h2>
+    <p class="lead">Você começou animado. Mas aí veio o primeiro erro. E o segundo. E aquele pensamento que fica rodando na cabeça e não sai:</p>
 
-    <div class="files reveal" id="files">
-      <div class="files-bar">
-        <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-        <span class="terminal-title">~/zero-codigo · 7 arquivos</span>
+    <div class="pain-scene reveal" aria-label="Pensamentos de quem tentou aprender e travou">
+      <figure class="pain-photo">
+        <img src="avatar.jpg" alt="Pessoa pensativa e cansada na frente do computador" loading="lazy">
+      </figure>
+      <span class="bubble bubble--1">“parecia que eu tava aprendendo <b>outra língua</b>”</span>
+      <span class="bubble bubble--2">“me perdi em tanta coisa e <b>desisti</b>”</span>
+      <span class="bubble bubble--3">“isso <b>não é pra mim</b>”</span>
+      <span class="bubble bubble--4">“todo mundo já sabe, só eu fico <b>pra trás</b>”</span>
+      <span class="bubble bubble--5">“de noite bate aquele <b>aperto</b> de não sair do lugar”</span>
+    </div>
+
+    <p class="punch reveal">E aí você fechou o computador<br>achando que o problema era <span class="k">você</span>.</p>
+  </div>
+</section>
+
+<!-- ════ DOBRA 4 · O VERDADEIRO MOTIVO ════ -->
+<section class="section" id="motivo">
+  <div class="wrap">
+    <span class="tag tag--soft">A VERDADE QUE NINGUÉM TE CONTOU</span>
+    <h2 class="title">O problema <span class="k">nunca foi você</span>.</h2>
+    <p class="lead lead--center">Você não travou por falta de talento. Travou porque te ensinaram do jeito difícil, que foi feito pra formar programador. E você não quer ser programador. Você quer um <b>resultado que dá pra vender</b>.</p>
+
+    <ul class="reasons">
+      <li class="reason reveal"><span class="reason-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9.5V13l2.5 1.5M9 2.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><p>O caminho antigo pede <b>meses estudando</b> antes do primeiro resultado.</p></li>
+      <li class="reason reveal"><span class="reason-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 12a2 2 0 1 1 3.4 1.4A4.5 4.5 0 1 1 8 10a7 7 0 1 1 11.5 5.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><p>Você se perde em <b>mil vídeos soltos</b>, sem ninguém dizendo o próximo passo.</p></li>
+      <li class="reason reveal"><span class="reason-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.8" stroke="currentColor" stroke-width="2"/><path d="M6 9.5h.01M18 14.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span><p>O dinheiro só aparece <b>lá na frente</b>, e você precisa dele agora.</p></li>
+      <li class="reason reveal"><span class="reason-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="16" height="12" rx="3.5" stroke="currentColor" stroke-width="2"/><path d="M12 3.5V8M9 13.5h.01M15 13.5h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M2 13.5v3M22 13.5v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><p>Ninguém te mostrou <b>o atalho</b> que a Inteligência Artificial abriu.</p></li>
+    </ul>
+
+    <p class="punch reveal">A barreira nunca foi a programação.<br>Foi a <span class="k">informação certa</span>.</p>
+  </div>
+</section>
+
+<!-- ════ DOBRA 5 · A SOLUÇÃO ════ -->
+<section class="section section--alt" id="metodo">
+  <div class="wrap">
+    <span class="tag">A VIRADA</span>
+    <h2 class="title">Você não vai aprender a programar. <span class="k">Você vai aprender a pedir.</span></h2>
+    <p class="lead lead--center">É simples assim: você escreve o que quer com palavras normais, a Inteligência Artificial monta a página pronta, e você entrega pro cliente. Em 3 passos:</p>
+
+    <div class="steps3">
+      <div class="step3 reveal">
+        <span class="step3-n">1</span>
+        <span class="step3-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+        <h3>Você pede</h3>
+        <p>Escreve com suas palavras o que o cliente vende e pra quem. Tem um modelo pronto pra você copiar.</p>
       </div>
-      <ul class="files-list">
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">01</span>
-            <span class="file-name">Instalação do Claude Code</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>Claude Pro + Node.js + Claude Code instalados do zero absoluto, no Mac ou no Windows. Você termina o capítulo com o ambiente pronto pra criar.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">02</span>
-            <span class="file-name">As 4 Perguntas Que Você Faz Antes de Abrir o Claude Code</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>O briefing completo de cliente em 4 perguntas: produto, público, ação desejada e materiais. A base de toda LP que converte.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">03</span>
-            <span class="file-name">O Prompt Que Transforma o Briefing em uma LP Profissional</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>O prompt-base estruturado que transforma o briefing numa landing page completa dentro do Claude Code. Copiar, adaptar, gerar.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">04</span>
-            <span class="file-name">Os 5 Erros que Fazem uma LP Criada com IA Parecer Amadora</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>Mobile, botões, imagens, copy genérica e performance: os 5 erros críticos que você corrige antes de entregar — e que separam amador de profissional.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">05</span>
-            <span class="file-name">Como Fazer a LP Parecer Profissional</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>Os 7 elementos visuais — tipografia, favicon, cores, espaçamento, animações, CTA e título da aba — com os comandos exatos pra aplicar cada um.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">06</span>
-            <span class="file-name">Como Cobrar e Vender o Serviço</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>Precificação, perfis de cliente, onde encontrá-los, como apresentar o preço e como virar as objeções. Da LP feita ao dinheiro na conta.</p></div>
-        </li>
-        <li class="file" data-file>
-          <button class="file-head" aria-expanded="false">
-            <span class="file-ico" aria-hidden="true">07</span>
-            <span class="file-name">Entrega, Publicação e Próximos Passos</span>
-            <svg class="file-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="file-body"><p>Publicação com Netlify Drop, a mensagem de entrega, como pedir depoimento, montar portfólio e gerar indicação. O ciclo que se repete.</p></div>
-        </li>
+      <div class="step3 reveal">
+        <span class="step3-n">2</span>
+        <span class="step3-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.9 5.4 5.4 1.9-5.4 1.9L12 17.6l-1.9-5.4L4.7 10.3l5.4-1.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+        <h3>A IA cria</h3>
+        <p>Em poucos minutos, a Inteligência Artificial monta a página inteira, bonita e pronta pra vender.</p>
+      </div>
+      <div class="step3 reveal">
+        <span class="step3-n">3</span>
+        <span class="step3-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M9.5 7h5l-1-3.2h-3L9.5 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 8.5c-2.2 2.8-3.3 11.5 4 11.5s5.6-8.7 4-11.5" stroke="currentColor" stroke-width="2"/><path d="M12 11.5v4.5M10.4 13h3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <h3>Você entrega e recebe</h3>
+        <p>Manda pro cliente, ele aprova, e você cobra de R$2.000 a R$5.000 pelo trabalho.</p>
+      </div>
+    </div>
+
+    <p class="objection reveal">E não, não é só jogar no ChatGPT. O que faz o cliente pagar caro é <b>o jeito certo de pedir</b> e os ajustes que deixam a página com cara de profissional. E sim, você também aprende <b>onde achar cliente</b> e como cobrar, mesmo começando do zero, sem nada pra mostrar ainda.</p>
+
+    <!-- a conta que fecha -->
+    <div class="account reveal">
+      <p class="account-row"><span>Tempo pra fazer uma página</span><b>2 a 4 horas</b></p>
+      <p class="account-row"><span>Quanto você cobra por ela</span><b>R$2.500</b></p>
+      <p class="account-row"><span>Fazendo 2 por mês</span><b>R$5.000</b></p>
+      <div class="account-line"></div>
+      <p class="account-total"><span>Por mês, no seu tempo livre</span><b class="account-big" id="profit" data-target="5000">R$0</b></p>
+    </div>
+    <p class="account-note reveal">Os valores são um exemplo do que dá pra fazer. O quanto você ganha depende de você.</p>
+  </div>
+</section>
+
+<!-- ════ DOBRA 6 · O QUE VEM DENTRO ════ -->
+<section class="section" id="conteudo">
+  <div class="wrap">
+    <span class="tag tag--soft">O QUE VEM DENTRO</span>
+    <h2 class="title">Do <span class="k">zero total</span> até o seu primeiro cliente pagando.</h2>
+    <p class="lead">São 7 partes, na ordem certa. Você vai do começo ao fim sem se perder.</p>
+
+    <ul class="lessons">
+      <li class="lesson reveal"><span class="lesson-n">1</span><div><h3>Deixe tudo pronto pra começar</h3><p>Instalação completa no seu computador, passo a passo, no Windows ou no Mac. Bem mastigado.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">2</span><div><h3>As 4 perguntas que você faz pro cliente</h3><p>Tudo que você precisa saber antes de criar, em 4 perguntas simples. A base de uma página que vende.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">3</span><div><h3>O pedido mágico pra IA</h3><p>O texto pronto que transforma as respostas do cliente numa página completa. É só copiar e colar.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">4</span><div><h3>Os 5 erros que entregam o amador</h3><p>O que checar antes de mostrar pro cliente, pra sua página nunca parecer feita às pressas.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">5</span><div><h3>O acabamento profissional</h3><p>Os detalhes que fazem o cliente abrir a boca e pensar “isso parece de empresa grande”.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">6</span><div><h3>Como cobrar e fechar</h3><p>Quanto pedir, onde achar cliente e o que falar quando ele disser que está caro. Da página feita ao dinheiro na conta.</p></div></li>
+      <li class="lesson reveal"><span class="lesson-n">7</span><div><h3>Entregar e ganhar o próximo</h3><p>Como colocar a página no ar, entregar bonito e transformar um cliente em dois ou três.</p></div></li>
+    </ul>
+    <p class="bonus-note reveal">E ainda vem junto: <b>15 pedidos prontos</b> pra colar na IA, uma <b>lista de conferência</b>, um <b>modelo de proposta</b> e o <b>grupo no WhatsApp</b>. Tudo feito pra quem <b>nunca</b> programou. Você não anda sozinho.</p>
+  </div>
+</section>
+
+<!-- ════ DOBRA 7 · PARA QUEM É ════ -->
+<section class="section section--alt" id="paraquem">
+  <div class="wrap">
+    <span class="tag tag--soft">ISSO É PRA VOCÊ?</span>
+    <h2 class="title">Veja se você se <span class="k">reconhece</span> aqui.</h2>
+
+    <div class="who-grid">
+      <figure class="who-photo reveal">
+        <img src="perfil.jpg" alt="Pessoa confiante e feliz usando o notebook" loading="lazy">
+        <span class="who-badge who-badge--1">+ R$2.500 por página</span>
+        <span class="who-badge who-badge--2">cliente fechado</span>
+      </figure>
+      <ul class="who-list reveal">
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Você quer uma renda que <b>dependa de você</b>, não de sorte</li>
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Está cansado de <b>trabalhar muito e ganhar pouco</b></li>
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Já tentou aprender algo de tecnologia e <b>travou</b></li>
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Sente que a IA está passando e você <b>ficou de fora</b></li>
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Não quer (e não precisa) <b>virar programador</b></li>
+        <li><span class="who-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Quer uma habilidade que <b>já paga bem no primeiro mês</b></li>
       </ul>
     </div>
+
+    <p class="punch reveal">Marcou <span class="k">2 ou mais</span>? Então isso foi feito pra você.</p>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     5 · NÚMEROS — A CONTA QUE FECHA (resultado)
-═════════════════════════════════════════════════ -->
-<section class="section numbers" id="numeros">
-  <div class="numbers-glow" aria-hidden="true"></div>
+<!-- ════ DOBRA 8 · TUDO QUE VOCÊ LEVA + ANCORAGEM ════ -->
+<section class="section" id="leva">
   <div class="wrap">
-    <p class="eyebrow eyebrow--accent reveal">// A CONTA QUE FECHA</p>
-    <h2 class="section-title reveal">A matemática de duas LPs por mês.</h2>
+    <span class="tag">TUDO QUE VOCÊ LEVA HOJE</span>
+    <h2 class="title">Olha o tanto de coisa <span class="k">por R$67</span>.</h2>
+    <p class="lead">Cada item vale dinheiro de verdade. Veja quanto custaria comprando separado:</p>
 
-    <div class="calc reveal">
-      <div class="calc-bar">
-        <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-        <span class="terminal-title">renda-extra.sh</span>
-      </div>
-      <div class="calc-body">
-        <p class="calc-row"><span>tempo por LP</span><span class="calc-dots"></span><b>2 a 4 horas</b></p>
-        <p class="calc-row"><span>preço médio por LP</span><span class="calc-dots"></span><b>R$2.500</b></p>
-        <p class="calc-row"><span>2 LPs por mês</span><span class="calc-dots"></span><b>R$5.000</b></p>
-        <p class="calc-row"><span>custo da ferramenta (Claude Pro)</span><span class="calc-dots"></span><b>− R$110</b></p>
-        <div class="calc-sep"></div>
-        <p class="calc-total">
-          <span>lucro líquido / mês</span>
-          <b class="calc-big" id="profit" data-target="4890">R$0</b>
-        </p>
-      </div>
-    </div>
+    <ul class="leva-list reveal">
+      <li><span class="leva-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> <span class="leva-name">O guia completo <b>Zero Código</b> (7 partes)</span> <span class="leva-val">R$197</span></li>
+      <li><span class="leva-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M13 2.5L4.5 14H10l-1 7.5L19.5 10H13.5l-.5-7.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> <span class="leva-name">Bônus: <b>15 pedidos prontos</b> pra colar na IA</span> <span class="leva-val">R$97</span></li>
+      <li><span class="leva-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="18" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M9 4.5a3 3 0 0 1 6 0M8.5 11h7M8.5 15h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span> <span class="leva-name">Bônus: <b>lista de conferência</b> antes de entregar</span> <span class="leva-val">R$47</span></li>
+      <li><span class="leva-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7V3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M10 13.5h5M10 17h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span> <span class="leva-name">Bônus: <b>modelo de proposta</b> pra fechar cliente</span> <span class="leva-val">R$97</span></li>
+      <li><span class="leva-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> <span class="leva-name"><b>Grupo no WhatsApp</b> com quem está fazendo junto</span> <span class="leva-val">incluso</span></li>
+    </ul>
 
-    <p class="numbers-kicker reveal">
-      Duas LPs por mês. Oito horas de trabalho. <span class="hl">R$5.000.</span>
-    </p>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════
-     6 · AUTOR — $ whoami
-═════════════════════════════════════════════════ -->
-<section class="section author">
-  <div class="wrap author-wrap reveal">
-    <div class="author-card">
-      <div class="author-bar">
-        <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-        <span class="terminal-title">whoami</span>
-      </div>
-      <div class="author-body">
-        <p class="author-cmd"><span class="t-prompt">tiago@vantt</span> <span class="t-sign">%</span> whoami</p>
-        <div class="author-id">
-          <div class="author-avatar" aria-hidden="true">TB</div>
-          <div>
-            <p class="author-name">Tiago Borges</p>
-            <p class="author-handle">CTO · Vantt Mkt · @THBORGESSILVA</p>
-          </div>
-        </div>
-        <p class="author-text">
-          Saí de <strong>vendedor de acessório automotivo</strong> para <strong>Diretor de Tecnologia</strong>
-          de uma agência de marketing em cerca de 2 anos — sem faculdade, sem curso tradicional de programação.
-          Aprendi a programar do zero usando IA.
-        </p>
-        <p class="author-text">
-          “Eu uso esse método nos meus próprios projetos. E agora estou documentando exatamente o que faço,
-          pra que você possa replicar.”
-        </p>
-      </div>
+    <div class="anchor reveal">
+      <p class="anchor-was">Tudo isso vale <s>R$438</s></p>
+      <p class="anchor-now">você paga só <b><span class="anchor-cur">R$</span>67</b></p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     7 · OFERTA — VALUE STACK / npm install
-═════════════════════════════════════════════════ -->
-<section class="section offer" id="oferta">
-  <div class="offer-glow" aria-hidden="true"></div>
+<!-- ════ DOBRA 9 · A OFERTA ════ -->
+<section class="section section--offer" id="oferta">
   <div class="wrap">
-    <p class="eyebrow eyebrow--accent reveal">// A OFERTA</p>
-    <h2 class="section-title reveal">Tudo que você instala hoje.</h2>
+    <span class="tag">A OFERTA</span>
+    <h2 class="title">Comece <span class="k">hoje mesmo</span>.</h2>
 
     <div class="offer-grid">
-      <!-- manifest -->
-      <div class="manifest reveal">
-        <div class="manifest-bar">
-          <span class="t-dot t-dot--r"></span><span class="t-dot t-dot--y"></span><span class="t-dot t-dot--g"></span>
-          <span class="terminal-title">npm install zero-codigo</span>
+      <div class="offer-mock reveal">
+        <div class="devices" aria-hidden="true">
+          <div class="dev-laptop">
+            <div class="dev-screen"><img src="capa.png" alt="" loading="lazy"></div>
+            <div class="dev-base"></div>
+          </div>
+          <div class="dev-phone"><div class="dev-pscreen"><img src="capa.png" alt="" loading="lazy"></div></div>
         </div>
-        <div class="manifest-body">
-          <p class="manifest-line"><span class="mf-plus">+</span> Ebook <b>Zero Código, LP Profissional</b> <span class="mf-meta">· 7 capítulos</span><span class="mf-val">R$197</span></p>
-          <p class="manifest-line"><span class="mf-plus">+</span> Bônus <b>15 Prompts de Alta Conversão</b> <span class="mf-meta">· prontos pra colar</span><span class="mf-val">R$97</span></p>
-          <p class="manifest-line"><span class="mf-plus">+</span> Bônus <b>Checklist de LP Profissional</b> <span class="mf-meta">· 20 pontos</span><span class="mf-val">R$47</span></p>
-          <p class="manifest-line"><span class="mf-plus">+</span> Bônus <b>Template de Proposta Comercial</b> <span class="mf-meta">· fechar clientes</span><span class="mf-val">R$97</span></p>
-          <p class="manifest-line"><span class="mf-plus">+</span> <b>Grupo exclusivo no WhatsApp</b> <span class="mf-meta">· comunidade de compradores</span><span class="mf-val">incluso</span></p>
-          <div class="manifest-sep"></div>
-          <p class="manifest-line manifest-anchor"><span class="mf-meta">valor somado</span><span class="mf-val mf-strike">R$438</span></p>
-        </div>
+        <span class="offer-mock-badge">Guia em PDF + 4 bônus. Você lê no PC e no celular.</span>
       </div>
 
-      <!-- price card -->
       <aside class="price reveal">
-        <p class="price-label">hoje, acesso imediato por</p>
-        <p class="price-value"><span class="price-cur">R$</span>67</p>
-        <p class="price-contrast">Menos que <b>um mês</b> da ferramenta que vai te pagar <b>R$5.000</b>.</p>
-        <a href="[LINK_HOTMART]" class="btn btn--primary btn--block btn--lg">
-          Quero rodar o método
-          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p class="price-label">comece por apenas</p>
+        <p class="price-big">
+          <span class="price-x">9x de</span>
+          <span class="price-amount"><span class="price-cur">R$</span>8,40</span>
+        </p>
+        <p class="price-cash">ou <b>R$67 à vista</b> com desconto</p>
+        <p class="price-once"><span class="price-once-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 1 1-4-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 4.5L12 14l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Pagamento <b>único</b>. Paga uma vez e o acesso é <b>pra sempre</b>.</p>
+        <a href="https://pay.hotmart.com/A106294924E?checkoutMode=10" class="btn btn--primary btn--block">
+          Quero começar agora
+          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <ul class="price-perks">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Acesso imediato após a compra</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Garantia incondicional de 7 dias</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pix, cartão ou boleto · via Hotmart</li>
+        <ul class="perks">
+          <li><span class="perk-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Cai no seu e-mail na hora da compra</li>
+          <li><span class="perk-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 7 dias de garantia, sem risco nenhum</li>
+          <li><span class="perk-c" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Pix, cartão ou boleto, tudo seguro</li>
         </ul>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     8 · GARANTIA
-═════════════════════════════════════════════════ -->
-<section class="section guarantee">
-  <div class="wrap guarantee-wrap reveal">
-    <div class="guarantee-ico" aria-hidden="true">
-      <svg width="46" height="46" viewBox="0 0 48 48" fill="none">
-        <path d="M24 4 7 11v12c0 10.5 7.2 18.6 17 21 9.8-2.4 17-10.5 17-21V11L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M16 24l5.5 5.5L33 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h2 class="guarantee-title">Risco zero por 7 dias.</h2>
-    <p class="guarantee-text">
-      Leia, aplique, crie sua primeira LP. Se não for o atalho que prometi,
-      você pede o reembolso em até 7 dias e recebe <strong>100% do valor de volta</strong>.
-      Sem perguntas, sem burocracia. O risco é todo meu.
-    </p>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════
-     9 · DEPOIMENTOS
-     ⚠️ PLACEHOLDER — SUBSTITUIR POR DEPOIMENTOS REAIS
-        antes de rodar qualquer tráfego pago (exigência legal/Hotmart)
-═════════════════════════════════════════════════ -->
-<section class="section social">
+<!-- ════ DOBRA 10 · OS DOIS CAMINHOS ════ -->
+<section class="section section--alt" id="caminhos">
   <div class="wrap">
-    <p class="eyebrow reveal">// QUEM JÁ RODOU</p>
-    <h2 class="section-title reveal">Do lado de dentro.</h2>
+    <span class="tag tag--soft">A PARTIR DAQUI</span>
+    <h2 class="title">Você tem <span class="k">dois caminhos</span>.</h2>
 
-    <div class="social-grid">
-      <figure class="testi reveal">
-        <div class="testi-head"><span class="t-dot t-dot--g"></span><span class="terminal-title">output.log</span></div>
-        <blockquote>Nunca tinha tocado em código. 48h depois de ler, criei minha primeira LP e fechei por R$2.500. O ebook se pagou no mesmo dia.</blockquote>
-        <figcaption><span class="testi-av">MC</span> <span><b>Marcos C.</b><br>freelancer · SP</span></figcaption>
-      </figure>
-      <figure class="testi reveal">
-        <div class="testi-head"><span class="t-dot t-dot--g"></span><span class="terminal-title">output.log</span></div>
-        <blockquote>Eu cobrava R$500 por LP. Depois do método, reposicionei e fechei a próxima por R$3.800. Mudou meu patamar.</blockquote>
-        <figcaption><span class="testi-av">AF</span> <span><b>Ana F.</b><br>designer · PR</span></figcaption>
-      </figure>
-      <figure class="testi reveal">
-        <div class="testi-head"><span class="t-dot t-dot--g"></span><span class="terminal-title">output.log</span></div>
-        <blockquote>Tentei aprender a programar 3 vezes e desisti. Com IA e esse passo a passo, em 1 semana eu entregava LP nível agência.</blockquote>
-        <figcaption><span class="testi-av">RS</span> <span><b>Rafael S.</b><br>empreendedor · MG</span></figcaption>
-      </figure>
+    <div class="paths">
+      <div class="path path--bad reveal">
+        <span class="path-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></span>
+        <h3>Caminho 1: ficar na mesma</h3>
+        <p>Fechar essa página e continuar ganhando pouco, vendo a IA virar oportunidade pra todo mundo, menos pra você. Daqui a um ano, no mesmo lugar.</p>
+      </div>
+      <div class="path path--good reveal">
+        <span class="path-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Caminho 2: começar agora</h3>
+        <p>Investir R$67 e criar sua primeira página essa semana. Ter uma habilidade que paga de R$2.000 a R$5.000 por trabalho, enquanto a maioria ainda está parada.</p>
+      </div>
     </div>
-    <p class="social-disclaimer">Depoimentos ilustrativos — serão substituídos pelos primeiros resultados reais de compradores.</p>
+
+    <p class="urgency reveal">A onda da IA <b>não vai te esperar</b>. Cada semana parado é um cliente que alguém fecha no seu lugar.</p>
+    <p class="punch reveal">A diferença entre os dois é <span class="k">uma escolha de R$67</span>.</p>
+    <div class="center-cta reveal">
+      <a href="https://pay.hotmart.com/A106294924E?checkoutMode=10" class="btn btn--primary">
+        Quero o caminho 2
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     10 · CTA FINAL
-═════════════════════════════════════════════════ -->
-<section class="section final" id="comprar">
-  <div class="final-glow" aria-hidden="true"></div>
-  <div class="wrap final-wrap">
-    <p class="eyebrow eyebrow--accent reveal">// ÚLTIMA LINHA</p>
-    <h2 class="final-title reveal">
-      A barreira nunca foi a programação.<br>
-      Foi a informação. <span class="hl">E você acabou de recebê-la.</span>
-    </h2>
-    <p class="final-lead reveal">
-      Não espere o momento perfeito. Não espere se sentir 100% pronto.
-      <strong>Faça sua primeira LP ainda essa semana.</strong>
-    </p>
+<!-- ════ DOBRA 11 · QUEM É O TIAGO ════ -->
+<section class="section" id="autor">
+  <div class="wrap">
+    <div class="author reveal">
+      <figure class="author-photo">
+        <img src="tiago.png" alt="Tiago Hudson" loading="lazy">
+        <span class="author-handle">@tiagohudsonoficial</span>
+      </figure>
+      <div class="author-body">
+        <span class="tag tag--soft">QUEM VAI TE ENSINAR</span>
+        <h2 class="author-name">Tiago Hudson</h2>
+        <p class="author-role">Diretor de Tecnologia</p>
+        <p>Eu saí de <b>vendedor de acessório de carro</b> pra <b>Diretor de Tecnologia</b> de uma agência em mais ou menos 2 anos. Sem faculdade, sem curso de programação. Aprendi a criar do zero usando Inteligência Artificial.</p>
+        <p>Não é teoria de quem nunca fez. <b>A prova sou eu:</b> se funcionou comigo, que comecei sem saber nada, funciona com você também.</p>
+        <p class="author-quote">“Eu uso esse método nos meus próprios projetos. Agora estou te mostrando exatamente o que eu faço, pra você copiar.”</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <a href="[LINK_HOTMART]" class="btn btn--primary btn--xl reveal">
-      Garantir meu acesso — R$67
-      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<!-- ════ DOBRA 12 · GARANTIA + COMO FUNCIONA + DÚVIDAS + CTA ════ -->
+<section class="section section--alt">
+  <div class="wrap guarantee reveal">
+    <div class="guarantee-ico" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 48 48" fill="none"><path d="M24 4 7 11v12c0 10.5 7.2 18.6 17 21 9.8-2.4 17-10.5 17-21V11L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 24l5.5 5.5L33 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2 class="guarantee-title">7 dias de garantia. <span class="k">Risco zero.</span></h2>
+    <p class="guarantee-text">Você lê, aplica e cria sua primeira página. Se não for o atalho que eu prometi, é só pedir o dinheiro de volta em até 7 dias. Você recebe <b>tudo de volta</b>, sem pergunta nenhuma. O risco é todo meu.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="tag tag--soft">COMO FUNCIONA A COMPRA</span>
+    <h2 class="title">Do clique ao acesso, em <span class="k">minutos</span>.</h2>
+    <div class="steps3">
+      <div class="step3 reveal"><span class="step3-n">1</span><h3>Você compra</h3><p>Clica no botão e paga com Pix, cartão ou boleto. Rápido e seguro.</p></div>
+      <div class="step3 reveal"><span class="step3-n">2</span><h3>Cai no e-mail</h3><p>Na hora que o pagamento confirma, o guia e os bônus chegam no seu e-mail.</p></div>
+      <div class="step3 reveal"><span class="step3-n">3</span><h3>Começa hoje</h3><p>Segue o passo a passo, cria sua primeira página e entra no grupo do WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <span class="tag tag--soft">DÚVIDAS</span>
+    <h2 class="title">Ainda na dúvida? <span class="k">Boa.</span></h2>
+    <div class="faq-list reveal">
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>Preciso saber programar?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Não. Você só aprende a <b>pedir do jeito certo</b> pra Inteligência Artificial. Quem faz o trabalho difícil é ela. Você revisa e entrega.</p></div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>Já tentei antes e não consegui. Vai ser diferente?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Vai. Dessa vez você não precisa estudar meses antes de ver resultado. A IA faz a parte técnica e você segue um passo a passo curto e direto. O que travou você antes <b>não está mais no caminho</b>.</p></div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>Funciona no meu computador?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Sim, no Windows e no Mac. A primeira parte do guia mostra tudo bem devagar, do começo.</p></div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>A ferramenta de IA é cara?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Custa por volta de R$110 por mês. Com <b>uma única página</b> que você vende, já paga vários meses dela e o guia inteiro.</p></div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>Como eu recebo?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Na hora. Assim que o pagamento confirma, tudo chega no e-mail que você cadastrar.</p></div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-head" aria-expanded="false"><span>E se eu não gostar?</span><span class="faq-chev" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Você tem 7 dias de garantia. Não gostou, por qualquer motivo? Pede o dinheiro de volta e recebe <b>100%</b>, sem burocracia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--final">
+  <div class="wrap final reveal">
+    <h2 class="final-title">A barreira nunca foi a programação. Foi a informação. <span class="k">E você acabou de recebê-la.</span></h2>
+    <p class="final-lead">Não espere o momento perfeito. <b>Crie sua primeira página essa semana.</b></p>
+    <p class="final-recap">Guia completo + 4 bônus + grupo no WhatsApp, por <b>9x de R$8,40</b> (ou R$67 à vista). Pagamento único, acesso pra sempre.</p>
+    <a href="https://pay.hotmart.com/A106294924E?checkoutMode=10" class="btn btn--primary btn--xl">
+      Garantir meu acesso por R$67
+      <svg class="btn-arrow" width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <p class="hero-micro reveal">Acesso imediato · Garantia de 7 dias · Pagamento seguro via Hotmart</p>
-
-    <p class="final-ps reveal">
-      Quando você receber o primeiro pagamento por algo que criou com IA — algo que antes parecia
-      impossível — você para de perguntar “será que consigo?” e começa a perguntar:
-      <span class="hl">o que mais eu consigo criar?</span>
-    </p>
+    <p class="trust"><span class="trust-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg></span> Acesso na hora. Garantia de 7 dias. Pagamento seguro pela Hotmart.</p>
   </div>
 </section>
 
 </main>
 
-<!-- ════ FOOTER — STATUS BAR ════ -->
 <footer class="footer">
   <div class="wrap footer-wrap">
-    <span class="footer-brand"><span class="nav-prompt">&gt;_</span> zero-codigo</span>
-    <span class="footer-by">© 2026 Tiago Borges · @THBORGESSILVA</span>
+    <span class="footer-brand"><span class="nav-dot" aria-hidden="true"></span> Zero Código</span>
+    <span class="footer-by">© 2026 Tiago Hudson · @tiagohudsonoficial</span>
     <span class="footer-links">
-      <a href="[LINK_POLITICA]">privacidade</a>
-      <a href="[LINK_TERMOS]">termos</a>
+      <a href="[LINK_POLITICA]">Privacidade</a>
+      <a href="[LINK_TERMOS]">Termos</a>
     </span>
   </div>
+  <div class="wrap footer-legal">
+    Este produto não garante resultado. Qualquer valor citado é só um exemplo e depende do esforço de cada pessoa. Pagamento processado com segurança pela Hotmart.
+  </div>
 </footer>
-
-<!-- ════ STICKY BUY BAR ════ -->
-<div class="buybar" id="buybar" hidden>
-  <span class="buybar-info"><b>Zero Código, LP Profissional</b><span class="buybar-price">R$67</span></span>
-  <a href="[LINK_HOTMART]" class="btn btn--primary buybar-btn">Garantir acesso
-    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-</div>
 
 <script src="script.js" defer></script>
 </body>
