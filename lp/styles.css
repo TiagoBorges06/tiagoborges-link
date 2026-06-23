@@ -181,8 +181,8 @@ main,.nav,.footer{position:relative;z-index:2}
 .who-badge--1{top:9%;left:6%;color:var(--accent-soft)}
 .who-badge--2{bottom:9%;right:6%}
 .who-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
-.who-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:1.08rem;color:var(--soft)}
-.who-c{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(123,196,127,.14);color:var(--green);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-top:1px}
+.who-list li{position:relative;padding-left:2.4rem;font-size:1.08rem;line-height:1.5;color:var(--soft)}
+.who-c{position:absolute;left:0;top:.1rem;flex:none;width:26px;height:26px;border-radius:50%;background:rgba(123,196,127,.14);color:var(--green);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem}
 
 /* ---------- DOBRA 8 · LEVA + ANCORAGEM ---------- */
 .leva-list{list-style:none;display:flex;flex-direction:column;gap:.2rem;max-width:620px;margin:0 auto}
