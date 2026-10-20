@@ -174,6 +174,8 @@
       reels.forEach((other) => {
         if (other !== video && !other.paused) other.pause();
       });
+      video.muted = false;
+      video.volume = 1;
       const attempt = video.play();
       if (attempt && typeof attempt.then === "function") {
         attempt.then(() => sync(true)).catch(() => sync(false));
