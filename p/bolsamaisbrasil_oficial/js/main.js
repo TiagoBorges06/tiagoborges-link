@@ -117,6 +117,98 @@
     });
   });
 
+
+  /* Vídeos: capa clicável, o player só carrega ao tocar */
+  document.querySelectorAll('.video').forEach(function (fig) {
+    var btn = fig.querySelector('.video-btn');
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + fig.getAttribute('data-yt') + '?autoplay=1&rel=0';
+      f.title = fig.getAttribute('data-title');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.loading = 'lazy';
+      btn.replaceWith(f);
+      f.focus();
+    });
+  });
+
+  /* Simulador de segunda graduação (mesmos dados do site oficial) */
+  var simIn = document.getElementById('sim-in');
+  if (simIn) {
+    var simList = document.getElementById('sim-list');
+    var simOut = document.getElementById('sim-out');
+    var simStatus = document.getElementById('sim-status');
+    var simMore = document.getElementById('sim-more');
+    var simData = null, simNorm = {}, simLoading = false, simAll = [], simShown = 12;
+    var norm = function (s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); };
+    var has = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k); };
+    var fmt = function (p) { var n = String(p).replace('.', ','); return n + (p === '1' ? ' semestre' : ' semestres'); };
+
+    var loadSim = function () {
+      if (simData || simLoading) return;
+      simLoading = true;
+      simStatus.textContent = 'Carregando os cursos...';
+      fetch('data/segunda-graduacao.json').then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); }).then(function (d) {
+        simData = d;
+        var frag = document.createDocumentFragment();
+        Object.keys(d.o).forEach(function (k) { simNorm[norm(k)] = k; var o = document.createElement('option'); o.value = k; frag.appendChild(o); });
+        simList.appendChild(frag);
+        simStatus.textContent = '';
+        renderSim();
+      }).catch(function () {
+        simLoading = false;
+        simStatus.textContent = 'Não foi possível carregar a lista agora. Tente de novo em instantes.';
+      });
+    };
+    var draw = function () {
+      simOut.textContent = '';
+      var frag = document.createDocumentFragment();
+      simAll.slice(0, simShown).forEach(function (c) {
+        var li = document.createElement('li');
+        var n = document.createElement('span'); n.className = 'n'; n.textContent = c[0];
+        var s = document.createElement('span'); s.className = 's'; s.textContent = fmt(c[1]);
+        li.appendChild(n); li.appendChild(s); frag.appendChild(li);
+      });
+      simOut.appendChild(frag);
+      simMore.hidden = simAll.length <= simShown;
+      simMore.textContent = 'Mostrar todos os ' + simAll.length + ' cursos';
+    };
+    var renderSim = function () {
+      if (!simData) return;
+      var v = simIn.value.trim();
+      var key = has(simData.o, v) ? v : (has(simNorm, norm(v)) ? simNorm[norm(v)] : null);
+      var idx = key ? simData.o[key] : null;
+      simShown = 12;
+      if (!idx) {
+        simAll = [];
+        simOut.textContent = '';
+        simMore.hidden = true;
+        simStatus.textContent = v ? 'Escolha um curso da lista para ver as opções.' : '';
+        return;
+      }
+      simAll = idx.map(function (i) { return simData.d[i]; }).sort(function (a, b) {
+        return parseFloat(a[1]) - parseFloat(b[1]) || a[0].localeCompare(b[0], 'pt-BR');
+      });
+      simStatus.textContent = simAll.length + (simAll.length === 1 ? ' curso encontrado, do mais rápido ao mais longo.' : ' cursos encontrados, do mais rápido ao mais longo.');
+      draw();
+    };
+    simIn.addEventListener('focus', loadSim);
+    simIn.addEventListener('input', renderSim);
+    simMore.addEventListener('click', function () {
+      var first = simShown;
+      simShown = simAll.length;
+      draw();
+      simStatus.textContent = 'Mostrando todos os ' + simAll.length + ' cursos.';
+      var li = simOut.children[first];
+      if (li) { li.tabIndex = -1; li.focus(); }
+    });
+    if ('IntersectionObserver' in window) {
+      var simIo = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { loadSim(); simIo.disconnect(); } }, { rootMargin: '300px' });
+      simIo.observe(document.getElementById('simulador'));
+    }
+  }
+
   /* Menu no celular */
   var toggle = document.querySelector('.bar-toggle');
   var menu = document.getElementById('menu');

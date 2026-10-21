@@ -35,6 +35,7 @@
   <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m10 9.2 5 2.8-5 2.8Z" fill="currentColor"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6L19.2 12Z" fill="currentColor"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
 </svg>
 
@@ -137,6 +138,24 @@
     <p class="eyebrow">Como funciona</p>
     <h2 id="h-how" class="h2">Do clique ao voucher em quatro passos</h2>
 
+    <div class="videos" data-reveal>
+      <p class="eyebrow videos-label">Veja em vídeo</p>
+      <figure class="video" data-yt="DS9ZFrRjbYI" data-title="Como adquirir uma bolsa de estudo">
+        <button class="video-btn" type="button" aria-label="Assistir ao vídeo: Como adquirir uma bolsa de estudo">
+          <img src="img/video-DS9ZFrRjbYI.webp" width="960" height="540" alt="" loading="lazy">
+          <span class="play" aria-hidden="true"><svg class="ic"><use href="#i-play"/></svg></span>
+        </button>
+        <figcaption>Como adquirir uma bolsa de estudo</figcaption>
+      </figure>
+      <figure class="video" data-yt="Vj2Af1eOidM" data-title="Institucional Bolsa Mais Brasil">
+        <button class="video-btn" type="button" aria-label="Assistir ao vídeo: Institucional Bolsa Mais Brasil, #vemprobolsa">
+          <img src="img/video-Vj2Af1eOidM.webp" width="960" height="540" alt="" loading="lazy">
+          <span class="play" aria-hidden="true"><svg class="ic"><use href="#i-play"/></svg></span>
+        </button>
+        <figcaption>Institucional Bolsa Mais Brasil, #vemprobolsa</figcaption>
+      </figure>
+    </div>
+
     <ol class="tickets">
       <li class="ticket t1" data-reveal>
         <div class="tk-body">
@@ -214,6 +233,24 @@
       <li class="lv c-ink"><a data-wa data-level="Profissionalizantes" href="https://wa.me/5508004414321"><span class="lv-name">Profissionalizantes</span><span class="lv-go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
       <li class="lv lv-wide c-sun"><a href="https://www.bolsamaisbrasil.com.br/" rel="noopener"><span class="lv-name">Prefere buscar por cidade, curso ou instituição?</span><span class="lv-go">Abrir a busca do site <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
     </ul>
+
+    <div class="sim" id="simulador" data-reveal>
+      <div class="sim-head">
+        <h3 class="h3">Simulador de segunda graduação</h3>
+        <p>Descubra quais cursos de segunda graduação você pode cursar em menos tempo.</p>
+      </div>
+      <div class="sim-form">
+        <label for="sim-in">Qual curso de graduação você concluiu?</label>
+        <input id="sim-in" type="text" list="sim-list" autocomplete="off" placeholder="Digite ou escolha o curso" spellcheck="false">
+        <datalist id="sim-list"></datalist>
+        <p class="sim-status" id="sim-status" role="status"></p>
+      </div>
+      <ul class="sim-out" id="sim-out"></ul>
+      <div class="sim-actions">
+      <button class="btn btn-ink sim-more" id="sim-more" type="button" hidden>Mostrar todos</button>
+      <a class="btn btn-leaf" data-wa data-level="Segunda Graduação" href="https://wa.me/5508004414321" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span>Falar sobre segunda graduação</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
