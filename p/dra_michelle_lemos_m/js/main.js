@@ -8,18 +8,21 @@
   var topo = d.getElementById('topo'), burger = d.getElementById('burger'), menu = d.getElementById('menu');
   function aoRolar() { topo.classList.toggle('rolou', window.scrollY > 24); }
   window.addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+  function muda(abrir) {
+    menu.classList.toggle('aberto', abrir);
+    burger.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+    burger.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+  }
   burger.addEventListener('click', function () {
-    var ab = menu.classList.toggle('aberto');
-    burger.setAttribute('aria-expanded', ab ? 'true' : 'false');
-    burger.setAttribute('aria-label', ab ? 'Fechar menu' : 'Abrir menu');
+    var abrir = !menu.classList.contains('aberto');
+    muda(abrir);
+    if (abrir) { var primeiro = menu.querySelector('a'); if (primeiro) primeiro.focus(); }
   });
   d.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu.classList.contains('aberto')) {
-      menu.classList.remove('aberto'); burger.setAttribute('aria-expanded', 'false'); burger.focus();
-    }
+    if (e.key === 'Escape' && menu.classList.contains('aberto')) { muda(false); burger.focus(); }
   });
   menu.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') { menu.classList.remove('aberto'); burger.setAttribute('aria-expanded', 'false'); }
+    if (e.target.tagName === 'A') muda(false);
   });
 
   /* revelar ao rolar (uma vez) */

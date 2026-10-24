@@ -23,7 +23,8 @@ em{font-style:italic}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.015em}
 :focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
 .agendar :focus-visible{outline-color:var(--ameixa)}
-.rodape :focus-visible,.flutuante:focus-visible,.citacao :focus-visible{outline-color:var(--rose)}
+.rodape :focus-visible,.citacao :focus-visible{outline-color:var(--rose)}
+.flutuante:focus-visible{outline:2px solid var(--nude);outline-offset:2px;box-shadow:0 0 0 5px var(--ameixa)}
 .skip{position:absolute;left:-9999px;top:0;background:var(--ameixa);color:var(--nude);padding:.75rem 1rem;z-index:200}
 .skip:focus{left:1rem;top:1rem}
 section{max-width:100vw}
@@ -88,8 +89,12 @@ section{max-width:100vw}
 @keyframes corre{to{transform:translateX(-50%)}}
 
 /* 3. perfil */
-.perfil{position:relative;height:430vh;background:var(--papel)}
-.perfil__palco{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;padding:calc(var(--topo) + 1.5rem) var(--gut) 1.25rem;overflow:hidden}
+.perfil{position:relative;background:var(--papel)}
+.js .perfil{height:430vh}
+.perfil__palco{display:flex;flex-direction:column;padding:calc(var(--topo) + 1.5rem) var(--gut) 1.25rem}
+.js .perfil__palco{position:sticky;top:0;height:100svh;overflow:hidden}
+.perfil__desenho{min-height:22rem}
+.js .perfil__desenho{min-height:0}
 .perfil__cab{max-width:48rem}
 .perfil h2{font-size:clamp(1.7rem,3.6vw,3.3rem);line-height:1.05}
 .perfil h2 em{color:var(--bronze);font-weight:500}
@@ -195,10 +200,10 @@ section{max-width:100vw}
   .abertura__texto{margin-right:0}
   .abertura__foto{width:min(78%,19rem);justify-self:start;margin-left:1.2rem}
   .angulos{left:auto;right:-1rem;width:6rem;height:6rem}
-  .perfil{height:400vh}
+  .js .perfil{height:400vh}
   .perfil__palco{padding-top:calc(var(--topo) + .75rem)}
-  .perfil__grade{grid-template-columns:1fr;grid-template-rows:minmax(0,34%) auto;align-items:start;gap:.75rem;margin-top:.5rem}
-  .perfil__desenho{height:100%}
+  .perfil__grade{grid-template-columns:1fr;grid-template-rows:auto auto;align-items:start;gap:.75rem;margin-top:.5rem}
+  .perfil__desenho{height:clamp(7.5rem,26svh,14rem);flex:none}
   .est{padding:.3rem 0 .3rem .8rem}
   .est h3{font-size:1.15rem}
   .est p{font-size:.92rem}
@@ -223,8 +228,8 @@ section{max-width:100vw}
   .faixa__trilho{animation:none}
   .angulos path{animation:none;stroke-dashoffset:0}
   .js .rv,.js .abertura .rv{opacity:1;transform:none;transition:none;animation:none}
-  .perfil{height:auto}
-  .perfil__palco{position:static;height:auto;overflow:visible}
+  .js .perfil{height:auto}
+  .js .perfil__palco{position:static;height:auto;overflow:visible}
   .perfil__grade{grid-template-rows:none}
   .perfil__desenho{height:26rem}
   .js .est p{max-height:none;margin-top:.4rem}
