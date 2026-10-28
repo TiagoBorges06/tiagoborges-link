@@ -17,7 +17,7 @@
       msg: 'Olá! Quero montar um PC Gamer.'
     },
     notebook: {
-      cor: '#6ea8ff', img: 'img/loja-balcao.webp', alt: 'Atendimento no balcão da loja Narigation',
+      cor: '#6ea8ff', img: 'img/notebook.webp', alt: 'Atendente da Narigation segurando um notebook',
       titulo: 'Notebooks',
       texto: 'Venda e configuração de equipamentos ideais para o seu uso, sem erro na escolha.',
       itens: ['Notebooks novos e seminovos com garantia', 'Atendimento consultivo antes da compra', 'Conserto, manutenção e upgrade'],
@@ -38,7 +38,7 @@
       msg: 'Olá! Preciso de um computador para trabalho.'
     },
     empresa: {
-      cor: '#36e04f', img: 'img/loja-atendimento.webp', alt: 'Atendimento na loja Narigation',
+      cor: '#36e04f', img: 'img/atendimento-balcao.webp', alt: 'Atendimento no balcão da loja Narigation',
       titulo: 'Soluções para empresas',
       texto: 'Estrutura em tecnologia com suporte e equipamentos sob medida para a sua operação.',
       itens: ['Equipamentos sob medida', 'Suporte para a sua operação', 'Atendimento presencial e suporte online'],
