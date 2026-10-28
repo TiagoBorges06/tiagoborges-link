@@ -14,7 +14,7 @@
     el.classList.add('in');
     var done = false;
     var end = function (e) {
-      if (done || (e && e.propertyName !== 'opacity')) return;
+      if (done || (e && e.propertyName !== 'transform')) return;
       done = true;
       el.removeEventListener('transitionend', end);
       finish(el);
