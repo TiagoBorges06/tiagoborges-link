@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demonstração de atendimento por IA | Amâncio Odontologia</title>
+<meta name="description" content="Experimente o atendimento por telefone com inteligência artificial da Amâncio Odontologia. Informe seu nome e telefone e receba uma ligação de demonstração.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4f6c'/%3E%3Cpath d='M10 9h5l1.5 4-2 1.5a8 8 0 0 0 3 3l1.5-2 4 1.5v5a2 2 0 0 1-2 2C14 24 8 18 8 11a2 2 0 0 1 2-2z' fill='white'/%3E%3C/svg%3E">
+<style>
+:root{--cor:#0b4f6c;--fundo:#f6f7f9;--cartao:#fff;--texto:#14181f;--suave:#566070;--linha:#d9dee6;--erro:#b3261e;--ok:#146c43}
+@media (prefers-color-scheme:dark){:root{--fundo:#0f1217;--cartao:#181d25;--texto:#eef1f5;--suave:#a4adba;--linha:#2b3340;--erro:#ff8a80;--ok:#6fd7a0}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fundo);color:var(--texto);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:560px;margin:0 auto;padding:32px 16px 48px}
+.selo{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--cor);border:1px solid currentColor;border-radius:999px;padding:4px 12px}
+@media (prefers-color-scheme:dark){.selo{color:color-mix(in srgb,var(--cor) 40%,#fff)}}
+h1{font-size:1.75rem;line-height:1.2;margin:16px 0 12px}
+.lead{color:var(--suave);margin:0 0 24px}
+form,.painel{background:var(--cartao);border:1px solid var(--linha);border-radius:16px;padding:24px}
+label{display:block;font-weight:600;margin:0 0 6px}
+input[type=text],input[type=tel]{width:100%;font:inherit;color:inherit;background:transparent;border:1px solid var(--linha);border-radius:10px;padding:12px 14px;margin:0 0 18px}
+input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--cor);outline-offset:2px}
+.dica{display:block;font-size:.875rem;color:var(--suave);margin:-12px 0 18px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0 20px;font-size:.9rem}
+.consent input{margin-top:4px;width:20px;height:20px;flex:none;accent-color:var(--cor)}
+.consent label{font-weight:400;margin:0}
+button{width:100%;font:inherit;font-weight:700;color:#fff;background:var(--cor);border:0;border-radius:12px;padding:14px 18px;cursor:pointer;min-height:48px}
+button[disabled]{opacity:.55;cursor:not-allowed}
+.isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#mensagem{margin:16px 0 0;min-height:1.5em;font-weight:600}
+#mensagem.erro{color:var(--erro)}
+#mensagem.ok{color:var(--ok)}
+.passos{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px;font-size:.95rem;color:var(--suave)}
+.passos li{display:flex;gap:10px;align-items:center}
+.passos li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--linha);flex:none}
+.passos li.feito::before{background:var(--ok)}
+.passos li.atual{color:var(--texto);font-weight:600}
+.passos li.atual::before{background:var(--cor)}
+.rodape{margin-top:28px;font-size:.85rem;color:var(--suave)}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){button{transition:opacity .2s}}
+</style>
+</head>
+<body>
+<main>
+  <span class="selo">Demonstração com inteligência artificial</span>
+  <h1>Experimente o atendente de IA da Amâncio Odontologia</h1>
+  <p class="lead">Informe seu nome e telefone. Em instantes nossa IA liga para você e atende como atenderia os clientes da Amâncio Odontologia. Faça perguntas como um cliente faria.</p>
+
+  <form id="form" novalidate>
+    <label for="nome">Seu nome</label>
+    <input id="nome" name="nome" type="text" autocomplete="given-name" maxlength="40" required>
+    <label for="telefone">Seu telefone com DDD</label>
+    <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(31) 99999-9999" maxlength="20" required aria-describedby="dica-tel">
+    <span class="dica" id="dica-tel">Pode ser celular ou fixo, de qualquer cidade do Brasil.</span>
+    <div class="isca" aria-hidden="true"><label for="site">Não preencha este campo</label><input id="site" name="site" type="text" tabindex="-1" autocomplete="off"></div>
+    <div class="consent">
+      <input id="consentimento" name="consentimento" type="checkbox" required>
+      <label for="consentimento">Autorizo receber uma ligação de demonstração feita por inteligência artificial, que poderá ser gravada, e receber o relatório por WhatsApp neste mesmo número. Meu nome e telefone serão usados só para esta demonstração e apagados em até 30 dias.</label>
+    </div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFz8YEyBEJibvGLb" data-language="pt-br"></div>
+    <button id="botao" type="submit">Ligar agora</button>
+    <p id="mensagem" role="status" aria-live="polite"></p>
+  </form>
+
+  <section class="painel" id="andamento" hidden aria-live="polite">
+    <strong id="titulo-andamento">Estamos ligando para você</strong>
+    <ol class="passos" id="passos">
+      <li data-fase="chamando">Chamando o seu telefone. Atenda quando tocar.</li>
+      <li data-fase="em_conversa">Conversa em andamento</li>
+      <li data-fase="processando">Gerando o relatório do atendimento</li>
+      <li data-fase="concluida">Relatório enviado para o seu WhatsApp</li>
+    </ol>
+  </section>
+
+  <div class="rodape">
+    <p>Esta é uma demonstração: preços, horários e agenda de atendimento são simulados e a IA se identifica como assistente virtual. Nenhum dado de pagamento é pedido.</p>
+    <details>
+      <summary>Como usamos seus dados</summary>
+      <p>Usamos seu nome e telefone apenas para fazer esta ligação e enviar o relatório por WhatsApp. A conversa pode ser gravada e transcrita para gerar o relatório. Tudo é apagado em até 30 dias. Não compartilhamos seus dados com terceiros, exceto os serviços de telefonia, voz e mensagens necessários para a demonstração. Para pedir a exclusão antes disso, responda a mensagem do WhatsApp.</p>
+    </details>
+  </div>
+</main>
+<script>
+(function(){
+  var API="https://demo-ligacao-ia.balcao-demo-ligacao-ia.workers.dev",EMPRESA="drphelipeamancio";
+  var f=document.getElementById("form"),b=document.getElementById("botao"),m=document.getElementById("mensagem");
+  var painel=document.getElementById("andamento"),passos=[].slice.call(document.querySelectorAll("#passos li"));
+  var ORDEM=["chamando","em_conversa","processando","concluida"];
+  function aviso(t,c){m.textContent=t;m.className=c||""}
+  function marcar(fase){
+    var i=ORDEM.indexOf(fase);
+    passos.forEach(function(li,k){li.className=k<i||fase==="concluida"?"feito":k===i?"atual":""});
+  }
+  function acompanhar(id){
+    var tentativas=0;
+    (function volta(){
+      tentativas++;
+      if(tentativas>300){aviso("A ligação está demorando mais que o normal. Se não recebeu nada, tente novamente mais tarde.","erro");return}
+      fetch(API+"/api/status/"+encodeURIComponent(id)).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){
+        var fase=d&&d.fase;
+        if(fase==="iniciando")fase="chamando";
+        if(fase==="concluida"){
+          if(d.relatorio==="enviado"){marcar("concluida");document.getElementById("titulo-andamento").textContent="Pronto! Conversa concluída";return}
+          if(d.relatorio==="nao_aplicavel"){marcar("processando");document.getElementById("titulo-andamento").textContent="Pronto! Conversa concluída";return}
+          if(d.relatorio==="falhou"){marcar("processando");document.getElementById("titulo-andamento").textContent="Conversa concluída";aviso("Não conseguimos enviar o relatório por WhatsApp agora. Tudo bem: a equipe pode enviar para você depois.","erro");return}
+          marcar("processando");setTimeout(volta,4000);return
+        }
+        if(fase==="nao_atendida"){painel.hidden=true;f.hidden=false;aviso("A ligação não foi atendida. Você pode pedir outra quando estiver com o telefone por perto.","erro");b.disabled=false;return}
+        if(fase==="falhou"){painel.hidden=true;f.hidden=false;aviso("Não conseguimos completar a ligação. Tente novamente em alguns minutos.","erro");b.disabled=false;return}
+        marcar(fase);setTimeout(volta,4000);
+      }).catch(function(e){if(String(e&&e.message)==="404"){aviso("Não encontramos mais este pedido. Recarregue a página para tentar de novo.","erro");return}setTimeout(volta,6000)});
+    })();
+  }
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(b.disabled)return;
+    var nome=f.nome.value.trim(),tel=f.telefone.value.trim();
+    if(nome.length<2){aviso("Informe seu nome.","erro");f.nome.focus();return}
+    if(tel.replace(/\D/g,"").length<10){aviso("Informe o telefone com DDD.","erro");f.telefone.focus();return}
+    if(!f.consentimento.checked){aviso("Precisamos da sua autorização para ligar.","erro");f.consentimento.focus();return}
+    b.disabled=true;aviso("Enviando seu pedido...");
+    var corpo={empresa:EMPRESA,nome:nome,telefone:tel,consentimento:true,site:f.site.value};
+    var cap=f.querySelector('[name="cf-turnstile-response"]');if(cap)corpo.captcha=cap.value;
+    fetch(API+"/api/ligar",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(corpo)})
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d}})})
+      .then(function(x){
+        if(!x.ok||!x.d.ok){aviso(x.d&&x.d.mensagem||"Não conseguimos iniciar a ligação.","erro");b.disabled=false;if(window.turnstile)try{turnstile.reset()}catch(_){}return}
+        aviso("");f.hidden=true;painel.hidden=false;marcar("chamando");acompanhar(x.d.id);
+      })
+      .catch(function(){aviso("Sem conexão. Verifique sua internet e tente novamente.","erro");b.disabled=false});
+  });
+})();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>
