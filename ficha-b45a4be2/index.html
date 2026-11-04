@@ -1,0 +1,476 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light dark"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#1F2A44"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Ficha"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png" type="image/png"><meta name="description" content="Ficha de treino e dieta pessoal"><title>Ficha de Treino do Tiago</title>
+
+<style>
+/* Layout: cartão de treino de academia. Abas fixas no topo, uma coluna única, campos grandes para o dedo. */
+:root{
+  --bg:#ECEFF3; --surface:#FFFFFF; --ink:#101A2C; --muted:#5B6779; --line:#D5DAE2;
+  --accent:#2438D6; --accent-ink:#FFFFFF; --accent-soft:#E4E8FB;
+  --signal:#C8431B; --signal-soft:#FBE9E2; --good:#13795B;
+  --f-display:'Arial Narrow','Roboto Condensed',system-ui,sans-serif;
+  --f-body:system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1220; --surface:#151D31; --ink:#E8ECF4; --muted:#93A0B6; --line:#26324A;
+    --accent:#8DA0FF; --accent-ink:#0C1220; --accent-soft:#1E2A52;
+    --signal:#FF8A5C; --signal-soft:#3A2218; --good:#4FD1A5; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1220; --surface:#151D31; --ink:#E8ECF4; --muted:#93A0B6; --line:#26324A;
+  --accent:#8DA0FF; --accent-ink:#0C1220; --accent-soft:#1E2A52;
+  --signal:#FF8A5C; --signal-soft:#3A2218; --good:#4FD1A5; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:2.1rem}
+h2{font-size:1.6rem;margin-bottom:12px}
+h3{font-size:1.25rem}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.label{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-top:14px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.brand{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.status{font-size:.8rem;color:var(--muted)}
+nav.tabs{display:flex;gap:4px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{flex:1 0 auto;font:600 .95rem var(--f-body);padding:11px 14px;border:0;background:none;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;min-height:44px}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+main{padding-top:20px;display:flex;flex-direction:column;gap:18px}
+section.panel{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.stat b{display:block;font-family:var(--f-display);font-size:2rem;line-height:1.05}
+.stat span{font-size:.85rem;color:var(--muted)}
+.stat.hl{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stat.hl span{color:var(--accent-ink);opacity:.85}
+.note{border-left:4px solid var(--signal);background:var(--signal-soft);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.95rem}
+ul.plain{margin:0;padding-left:1.1em}
+ul.plain li{margin-bottom:6px}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.scroll{overflow-x:auto}
+
+/* controles do treino */
+.controls{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{font:600 .95rem var(--f-body);padding:10px 14px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.days .pill{padding:10px 0;text-align:center;border-radius:8px}
+.days .pill.rest{color:var(--muted)}
+.days .pill[aria-pressed="true"].rest{color:var(--accent-ink)}
+.week{display:flex;align-items:center;gap:10px}
+.week button{width:44px;height:44px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.3rem;cursor:pointer}
+.week output{font-family:var(--f-display);font-size:1.5rem;font-weight:700;min-width:7.5ch;text-align:center}
+
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ex header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.ex h3{font-size:1.3rem}
+.scheme{font-weight:600;font-size:.95rem;color:var(--accent);white-space:nowrap}
+.sets{display:grid;grid-template-columns:3.2rem 1fr 1fr;gap:6px 10px;align-items:center}
+.sets .h{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sets .n{font-family:var(--f-display);font-size:1.2rem;font-weight:700;color:var(--muted)}
+input.f{width:100%;min-width:0;height:44px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 1.05rem var(--f-body);padding:0 10px;font-variant-numeric:tabular-nums}
+input.f::placeholder{color:var(--muted);opacity:.6;font-weight:400}
+.meal{display:grid;grid-template-columns:5.2rem 1fr;gap:6px 14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.meal:last-child{border-bottom:0}
+.meal .t{font-family:var(--f-display);font-size:1.3rem;font-weight:700;color:var(--accent)}
+.meal .macros{grid-column:2;font-size:.85rem;color:var(--muted)}
+.meal h3{font-size:1.1rem;margin-bottom:2px}
+@media (max-width:420px){.meal{grid-template-columns:1fr}.meal .macros{grid-column:1}}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+.chk input{width:22px;height:22px;margin-top:2px;accent-color:var(--accent)}
+.cardio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px}
+.cardio-grid label{display:flex;flex-direction:column;gap:4px;font-size:.8rem;font-weight:600;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two label{display:flex;flex-direction:column;gap:4px;font-size:.8rem;font-weight:600;color:var(--muted)}
+.bf{margin-top:14px;border-top:1px solid var(--line);padding-top:8px}
+@media (prefers-reduced-motion:no-preference){.panel{animation:in .2s ease-out}@keyframes in{from{opacity:.4}to{opacity:1}}}
+</style></head><body>
+
+<div class="wrap">
+<header class="top">
+  <div class="brand">
+    <h1>Ficha do Tiago</h1>
+    <span class="status" id="status" aria-live="polite"></span>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Seções">
+    <button role="tab" id="tab-resumo" data-tab="resumo">Resumo</button>
+    <button role="tab" id="tab-treino" data-tab="treino">Treino</button>
+    <button role="tab" id="tab-corpo" data-tab="corpo">Cardio e corpo</button>
+    <button role="tab" id="tab-dieta" data-tab="dieta">Dieta</button>
+  </nav>
+</header>
+<main id="main"></main>
+</div>
+
+<script>
+/* ---------- dados do treino ---------- */
+const e=(id,n,f,h)=>({id,n,f,h});
+const DAYS={
+  seg:{abbr:'Seg',nome:'Segunda',foco:'Superior A',desc:'Peito, costas, ombros e braços (pesado)',ex:[
+    e('sa1','Supino reto com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
+    e('sa2','Remada curvada com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
+    e('sa3','Desenvolvimento com halteres sentado',[4,'5–6','2 min'],[3,'8–12','90 s']),
+    e('sa4','Puxada na frente (barra aberta)',[4,'6–8','2 min'],[3,'10–12','75 s']),
+    e('sa5','Tríceps testa com barra W',[3,'6–8','90 s'],[3,'10–12','60 s']),
+    e('sa6','Rosca direta com barra W',[3,'6–8','90 s'],[3,'10–12','60 s'])]},
+  ter:{abbr:'Ter',nome:'Terça',foco:'Inferior A',desc:'Pernas e abdômen (pesado)',ex:[
+    e('ia1','Agachamento livre',[5,'4–6','3 min'],[4,'8–10','2 min']),
+    e('ia2','Stiff com barra',[4,'6–8','2–3 min'],[3,'10–12','90 s']),
+    e('ia3','Leg press 45°',[3,'8–10','2 min'],[3,'12–15','90 s']),
+    e('ia4','Panturrilha em pé',[4,'8–10','90 s'],[4,'12–15','60 s']),
+    e('ia5','Abdominal na polia (ajoelhado)',[3,'8–10','90 s'],[3,'12–15','60 s'])]},
+  qua:{abbr:'Qua',nome:'Quarta',foco:'Descanso ativo',desc:'Mobilidade e articulações. Sem musculação.',rest:true},
+  qui:{abbr:'Qui',nome:'Quinta',foco:'Superior B',desc:'Peito, costas e ombros (mais volume)',ex:[
+    e('sb1','Supino inclinado com halteres',[4,'6–8','2 min'],[4,'8–12','90 s']),
+    e('sb2','Remada baixa no cabo (triângulo)',[4,'6–8','2 min'],[4,'10–12','90 s']),
+    e('sb3','Barra fixa ou puxada neutra',[3,'5–8','2 min'],[3,'8–12','90 s']),
+    e('sb4','Elevação lateral com halteres',[3,'10–12','60 s'],[4,'12–15','60 s']),
+    e('sb5','Crucifixo no cabo ou peck deck',[3,'10–12','75 s'],[3,'12–15','60 s']),
+    e('sb6','Face pull no cabo',[3,'12–15','60 s'],[3,'15–20','60 s'])]},
+  sex:{abbr:'Sex',nome:'Sexta',foco:'Inferior B',desc:'Glúteos, posterior, quadríceps e abdômen',ex:[
+    e('ib1','Afundo ou agachamento búlgaro',[3,'6–8 por perna','2 min'],[3,'10–12 por perna','90 s']),
+    e('ib2','Hip thrust com barra',[4,'5–8','2 min'],[3,'10–12','90 s']),
+    e('ib3','Mesa flexora',[3,'8–10','90 s'],[4,'10–12','75 s']),
+    e('ib4','Cadeira extensora',[3,'10–12','90 s'],[3,'12–15','60 s']),
+    e('ib5','Panturrilha sentado',[4,'10–12','60 s'],[4,'12–15','60 s']),
+    e('ib6','Elevação de pernas (abdômen)',[3,'10–12','60 s'],[3,'12–15','60 s'])]},
+  sab:{abbr:'Sáb',nome:'Sábado',foco:'Braços e ombros',desc:'Detalhe de braços, ombros e abdômen',ex:[
+    e('br1','Desenvolvimento Arnold',[3,'6–8','90 s'],[3,'8–12','75 s']),
+    e('br2','Rosca martelo',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('br3','Tríceps corda na polia',[3,'8–10','75 s'],[3,'10–15','60 s']),
+    e('br4','Rosca inclinada no banco',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('br5','Tríceps francês com halter',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('br6','Elevação lateral no cabo',[3,'10–12','60 s'],[3,'12–15','60 s']),
+    e('br7','Abdominal na máquina ou roda',[3,'10–12','60 s'],[3,'12–15','60 s'])]},
+  dom:{abbr:'Dom',nome:'Domingo',foco:'Descanso total',desc:'Sem treino. Dormir bem e comer bem.',rest:true}
+};
+const ORDER=['seg','ter','qua','qui','sex','sab','dom'];
+const MOB=[['Abertura de quadril (posição 90/90)','2 × 60 s cada lado'],['Rotação de coluna torácica no chão','2 × 10 cada lado'],['Alongamento de peitoral na porta','2 × 30 s cada lado'],['Mobilidade de ombro com elástico ou bastão','2 × 10'],['Tornozelo (joelho na parede)','2 × 10 cada lado'],['Gato e camelo','2 × 10']];
+
+/* ---------- estado e gravação ---------- */
+let S={ui:{tab:'resumo',day:'seg',phase:'f',week:1},d:{}};
+let docRef=null,saving=false,dirty=false,timer=null;
+const LS='ficha-tiago-v1';
+const $=s=>document.querySelector(s);
+const OKV=/^[-+]?[\d.,eE+-]{1,24}$/;
+function lsRead(){
+  try{
+    const o=JSON.parse(localStorage.getItem(LS)||'null');
+    if(!o||typeof o!=='object')return null;
+    const d={};
+    if(o.d&&typeof o.d==='object')for(const k of Object.keys(o.d)){const v=o.d[k];if((typeof v==='string'||typeof v==='number')&&OKV.test(String(v)))d[k]=String(v)}
+    const u=o.ui&&typeof o.ui==='object'?o.ui:{},ui={};
+    if(['resumo','treino','corpo','dieta'].includes(u.tab))ui.tab=u.tab;
+    if(ORDER.includes(u.day))ui.day=u.day;
+    if(u.phase==='f'||u.phase==='h')ui.phase=u.phase;
+    if(Number.isInteger(u.week)&&u.week>=1&&u.week<=40)ui.week=u.week;
+    return {ui,d};
+  }catch(_){return null}
+}
+const esc=t=>String(t).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+let lsOk=true;
+function lsWrite(){try{localStorage.setItem(LS,JSON.stringify(S));lsOk=true}catch(_){lsOk=false}}
+function status(t){const el=$('#status');if(el)el.textContent=t}
+function schedule(){lsWrite();dirty=true;clearTimeout(timer);timer=setTimeout(flush,900);status(lsOk?'Salvando…':'Não foi possível salvar neste aparelho')}
+async function flush(){
+  if(saving){timer=setTimeout(flush,500);return}
+  if(!dirty)return;
+  if(!docRef){dirty=false;status(lsOk?'Salvo só neste aparelho':'Não foi possível salvar neste aparelho');return}
+  saving=true;dirty=false;
+  try{await docRef.set({ui:S.ui,d:JSON.stringify(S.d)});status('Salvo')}catch(er){status('Não salvou na nuvem'+(er&&er.code?' ('+er.code+')':'')+'. Fica só neste aparelho.')}
+  saving=false;
+  if(dirty)timer=setTimeout(flush,300);
+}
+function get(k){return esc(S.d[k]??'')}
+function prev(build,w){for(let i=w-1;i>=1;i--){const v=S.d[build(i)];if(v!==undefined)return esc(v)}return ''}
+
+/* ---------- telas ---------- */
+const fmt=n=>n.toLocaleString('pt-BR');
+
+function viewResumo(){return `
+<section class="panel">
+  <div class="card">
+    <p class="label">Ponto de partida</p>
+    <h2>Homem, 23 anos, 171 cm, 80 kg</h2>
+    <p>Índice de massa corporal de 27,4, que o cálculo comum chama de sobrepeso. Como você treina há mais de 4 anos e tem músculo, esse número exagera. O que importa aqui é a gordura da barriga, então a meta é medida pela cintura e pelo espelho, e não só pela balança.</p>
+  </div>
+  <div class="grid4">
+    <div class="stat"><b class="num">${fmt(1759)}</b><span>kcal que seu corpo gasta parado por dia (taxa metabólica basal)</span></div>
+    <div class="stat"><b class="num">≈ ${fmt(2750)}</b><span>kcal gastas por dia com treino e cardio</span></div>
+    <div class="stat hl"><b class="num">≈ ${fmt(2200)}</b><span>kcal para comer por dia (corte de cerca de 20%)</span></div>
+    <div class="stat"><b class="num">73–75 kg</b><span>peso alvo estimado, com mais músculo que gordura</span></div>
+  </div>
+  <div class="card">
+    <h3>Como chegamos nesses números</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li><b>Gasto parado:</b> fórmula de Mifflin St Jeor, a mais usada por nutricionistas. 10 × 80 kg + 6,25 × 171 cm − 5 × 23 anos + 5 = 1.759 kcal.</li>
+      <li><b>Gasto no dia a dia:</b> 1.759 × 1,55 (5 treinos de peso mais cardio quase todo dia) = cerca de 2.750 kcal.</li>
+      <li><b>Peso ideal:</b> para 1,71 m, o índice saudável vai de 54 a 73 kg. Quem tem músculo costuma ficar no topo dessa faixa. Com 12 a 15% de gordura, a conta aponta para 73 a 75 kg.</li>
+      <li><b>Prazo:</b> perder 0,4 a 0,6 kg por semana protege o músculo. Isso dá cerca de 12 a 16 semanas para perder uns 6 kg de gordura.</li>
+    </ul>
+    <p class="small muted" style="margin-top:10px">São estimativas, com erro de até 10%. A conferência real é pesar toda manhã e medir a cintura toda semana (aba Cardio e corpo).</p>
+  </div>
+  <div class="note"><b>No iPhone:</b> toque em Compartilhar e depois em Adicionar à Tela de Início, e só então anote as cargas. O Safari e o app da tela inicial guardam dados separados, e o que for digitado antes de instalar não passa para o app.</div>
+  <div class="note"><b>Sobre a barriga:</b> não existe exercício que queime gordura só de uma região. Fazer abdominal fortalece o abdômen, mas a gordura sai do corpo todo, e a barriga costuma ser a última a ir. O que faz a barriga diminuir é manter o corte de calorias por semanas.</div>
+  <div class="card">
+    <h3>Sua semana</h3>
+    <div class="scroll"><table style="margin-top:8px">
+      <tr><th>Dia</th><th>Manhã (jejum)</th><th>Musculação às 17h</th></tr>
+      ${ORDER.map(k=>`<tr><td><b>${DAYS[k].nome}</b></td><td>${k==='dom'?'Livre':'Cardio 30 a 40 min'}</td><td>${DAYS[k].rest?DAYS[k].foco:DAYS[k].foco+' <span class="muted">('+DAYS[k].desc.toLowerCase()+')</span>'}</td></tr>`).join('')}
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>Fases do treino</h3>
+    <p class="muted small" style="margin-top:6px">Na aba Treino, o botão de fase troca séries, repetições e descansos de todos os exercícios.</p>
+    <table><tr><th>Fase</th><th>Duração</th><th>Objetivo</th></tr>
+      <tr><td><b>Força</b></td><td>4 a 6 semanas</td><td>Poucas repetições, carga alta, descanso longo. Você está aqui agora.</td></tr>
+      <tr><td><b>Hipertrofia</b></td><td>6 a 8 semanas</td><td>Repetições médias, mais volume. Foco em ganhar músculo.</td></tr>
+      <tr><td><b>Semana leve</b></td><td>1 semana</td><td>Metade das séries, mais mobilidade, para articulações e recuperação. Depois volta para Força.</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Como evoluir a carga</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li>Anote a carga e as repetições de cada série na aba Treino. Os números da semana passada aparecem em cinza dentro do campo.</li>
+      <li>Termine cada série com 1 ou 2 repetições sobrando (a última pode ir até 1 sobrando).</li>
+      <li>Quando fizer o número máximo de repetições em todas as séries, com boa postura, suba a carga na próxima semana: 2 kg nos exercícios de braço e ombro, 5 kg nos de perna e costas.</li>
+      <li>Antes do primeiro exercício, 5 minutos de bicicleta e 2 séries leves de aquecimento (metade e depois 75% da carga).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Outros pontos que ajudam</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li><b>Sono:</b> 7 a 9 horas. Dormir pouco aumenta a fome e atrapalha o músculo.</li>
+      <li><b>Passos:</b> 8 a 10 mil por dia fora o cardio.</li>
+      <li><b>Água:</b> 2,5 a 3 litros por dia.</li>
+      <li><b>Creatina (opcional):</b> 3 a 5 g por dia, a qualquer hora. É um dos suplementos mais estudados para força e músculo. Pode aumentar o peso em 1 kg por reter água nos músculos, o que não é gordura.</li>
+      <li><b>Saúde:</b> se tiver tontura, dor no peito ou dor nas articulações que não passa, pare e procure um médico. Um check-up de sangue antes de começar é uma boa ideia.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Base científica</h3>
+    <ul class="plain small" style="margin-top:10px">
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153" target="_blank" rel="noopener">Posição da Sociedade Internacional de Nutrição Esportiva sobre proteína</a>: 1,4 a 2,0 g por kg para ganhar e manter músculo, e faixas mais altas para quem treina e está em déficit.</li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/28630601/" target="_blank" rel="noopener">Posição da mesma sociedade sobre dietas e composição corporal</a>: a perda de gordura vem de um déficit de calorias mantido, e perder mais devagar preserva o músculo.</li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" target="_blank" rel="noopener">Revisão sobre frequência de treino</a>: treinar cada músculo 2 vezes por semana rende mais hipertrofia do que 1 vez.</li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877/" target="_blank" rel="noopener">Revisão sobre volume semanal</a>: de 10 a 20 séries por músculo por semana é a faixa mais indicada.</li>
+      <li><a href="https://pescience.com/blogs/articles/does-fasted-cardio-accelerate-fat-loss/" target="_blank" rel="noopener">Resumo sobre cardio em jejum</a>: queima um pouco mais de gordura durante o exercício, mas a perda total é igual à do cardio com comida quando as calorias do dia são as mesmas.</li>
+    </ul>
+  </div>
+</section>`}
+
+function viewTreino(){
+  const u=S.ui,day=DAYS[u.day],w=u.week,F=u.phase==='f';
+  const ctrl=`
+  <div class="controls">
+    <div class="days" role="group" aria-label="Dia da semana">${ORDER.map(k=>`<button class="pill ${DAYS[k].rest?'rest':''}" data-day="${k}" aria-pressed="${u.day===k}">${DAYS[k].abbr}</button>`).join('')}</div>
+    <div class="row" style="justify-content:space-between">
+      <div class="row" role="group" aria-label="Fase do treino">
+        <button class="pill" data-phase="f" aria-pressed="${F}">Força</button>
+        <button class="pill" data-phase="h" aria-pressed="${!F}">Hipertrofia</button>
+      </div>
+      <div class="week"><button data-wk="-1" aria-label="Semana anterior">−</button><output>Semana ${w}</output><button data-wk="1" aria-label="Próxima semana">+</button></div>
+    </div>
+  </div>`;
+  let body;
+  if(day.rest){
+    body=`<div class="card"><p class="label">${day.nome}</p><h2>${day.foco}</h2><p>${day.desc}</p>
+      ${u.day==='qua'?`<p>Faça o cardio da manhã normalmente, sem esforço forte. À tarde, 15 minutos de mobilidade:</p>
+      <div class="scroll"><table>${MOB.map(m=>`<tr><td>${m[0]}</td><td class="num">${m[1]}</td></tr>`).join('')}</table></div>`:`<p>Cardio livre. Se sentir o corpo pesado, pode pular.</p>`}</div>`;
+  }else{
+    body=`<div class="card"><p class="label">${day.nome} às 17h · fase ${F?'Força':'Hipertrofia'}</p><h2>${day.foco}</h2><p class="muted" style="margin:0">${day.desc}. ${F?'Peso alto, descanso longo, 1 a 2 repetições sobrando.':'Controle a descida, sinta o músculo, 1 a 2 repetições sobrando.'}</p></div>`+
+    day.ex.map(x=>{
+      const c=F?x.f:x.h;
+      let rows='';
+      for(let i=0;i<c[0];i++){
+        const kk=`${w}|${x.id}|${i}|kg`,rk=`${w}|${x.id}|${i}|r`;
+        const pk=prev(n=>`${n}|${x.id}|${i}|kg`,w),pr=prev(n=>`${n}|${x.id}|${i}|r`,w);
+        rows+=`<span class="n">${i+1}</span>
+        <input class="f" id="i-${x.id}-${i}-kg" data-k="${kk}" type="number" inputmode="decimal" step="0.5" min="0" placeholder="${pk||'kg'}" value="${get(kk)}" aria-label="${x.n}, série ${i+1}, carga em kg">
+        <input class="f" id="i-${x.id}-${i}-r" data-k="${rk}" type="number" inputmode="numeric" step="1" min="0" placeholder="${pr||'reps'}" value="${get(rk)}" aria-label="${x.n}, série ${i+1}, repetições">`;
+      }
+      return `<article class="ex"><header><h3>${x.n}</h3><span class="scheme num">${c[0]} × ${c[1]} · ${c[2]}</span></header>
+      <div class="sets"><span class="h">Série</span><span class="h">Carga (kg)</span><span class="h">Repetições</span>${rows}</div></article>`;
+    }).join('');
+  }
+  return `<section class="panel">${ctrl}${body}</section>`;
+}
+
+function viewCorpo(){
+  const w=S.ui.week;
+  const wk=`<div class="week"><button data-wk="-1" aria-label="Semana anterior">−</button><output>Semana ${w}</output><button data-wk="1" aria-label="Próxima semana">+</button></div>`;
+  const pk=prev(n=>`b|${n}|peso`,w),ck=prev(n=>`b|${n}|cint`,w);
+  return `<section class="panel">
+  <div class="row" style="justify-content:space-between"><h2 style="margin:0">Cardio e corpo</h2>${wk}</div>
+  <div class="card">
+    <h3>Cardio da manhã, em jejum</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li><b>O que fazer:</b> caminhada na esteira com inclinação de 8 a 12% a 5,5 a 6,5 km/h, ou bicicleta. O ritmo certo é aquele em que você ainda consegue conversar.</li>
+      <li><b>Quanto:</b> 30 a 40 minutos, de segunda a sábado. Domingo livre.</li>
+      <li><b>Antes:</b> água e, se quiser, café preto sem açúcar. O café com leite fica para depois do cardio, em até 1 hora.</li>
+      <li><b>Se um dia não der para fazer em jejum:</b> sem problema. As pesquisas mostram que a perda de gordura no fim é igual quando a comida do dia é a mesma. O que conta é a soma da semana.</li>
+      <li>Se sentir tontura ou fraqueza, coma algo leve e siga o dia.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Minutos de cardio na semana ${w}</h3>
+    <div class="cardio-grid" style="margin-top:10px">${ORDER.map(k=>{const kk=`c|${w}|${k}`;return `<label for="c-${k}">${DAYS[k].abbr}<input class="f" id="c-${k}" data-k="${kk}" type="number" inputmode="numeric" min="0" step="5" placeholder="min" value="${get(kk)}"></label>`}).join('')}</div>
+  </div>
+  <div class="card">
+    <h3>Medidas e gordura da semana ${w}</h3>
+    <p class="small muted">Uma vez por semana, no mesmo dia, de manhã, em jejum e depois do banheiro. Cintura: fita na altura do umbigo, sem apertar nem encolher a barriga. Pescoço: logo abaixo do gogó. Balança: o percentual de gordura que a balança da academia mostrar.</p>
+    <div class="two"><label for="b-peso">Peso (kg)<input class="f" id="b-peso" data-k="b|${w}|peso" type="number" inputmode="decimal" step="0.1" placeholder="${pk||'kg'}" value="${get(`b|${w}|peso`)}"></label>
+    <label for="b-cint">Cintura (cm)<input class="f" id="b-cint" data-k="b|${w}|cint" type="number" inputmode="decimal" step="0.5" placeholder="${ck||'cm'}" value="${get(`b|${w}|cint`)}"></label>
+    <label for="b-pesc">Pescoço (cm)<input class="f" id="b-pesc" data-k="b|${w}|pesc" type="number" inputmode="decimal" step="0.5" placeholder="cm" value="${get(`b|${w}|pesc`)}"></label>
+    <label for="b-bal">Gordura da balança (%)<input class="f" id="b-bal" data-k="b|${w}|bal" type="number" inputmode="decimal" step="0.1" placeholder="%" value="${get(`b|${w}|bal`)}"></label>
+    <label for="b-alt">Altura (cm)<input class="f" id="b-alt" data-k="cfg|alt" type="number" inputmode="decimal" step="1" placeholder="171" value="${get('cfg|alt')}"></label>
+    <label for="b-meta">Meta de gordura (%)<input class="f" id="b-meta" data-k="cfg|meta" type="number" inputmode="decimal" step="0.5" placeholder="14" value="${get('cfg|meta')}"></label></div>
+    <div id="bf-out" class="bf" aria-live="polite"></div>
+  </div>
+  <div class="card"><h3>Histórico</h3><div class="scroll" id="hist"></div></div>
+  <div class="card">
+    <h3>Como ajustar</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li>Média de peso não caiu em 2 semanas: tire cerca de 150 kcal (um pouco menos de arroz e de pão).</li>
+      <li>Perdendo mais de 1 kg por semana, ou treino sem força: acrescente 150 kcal.</li>
+      <li>Cintura caindo mesmo com peso parado é sinal bom: pode ser músculo subindo e gordura descendo.</li>
+    </ul>
+  </div>
+  </section>`;
+}
+const f1=n=>n.toFixed(1).replace('.',',');
+function num(v){const n=parseFloat(String(v).replace(',','.'));return isNaN(n)?null:n}
+/* Gordura pelo método da Marinha dos EUA (medidas em cm) e pela balança */
+function bfFor(w){
+  const a0=num(S.d['cfg|alt']),alt=a0!==null&&a0>=120&&a0<=230?a0:171;
+  const pos=x=>x!==null&&isFinite(x)&&x>0?x:null;
+  const c=pos(num(S.d[`b|${w}|cint`])),p=pos(num(S.d[`b|${w}|pesc`])),kg=pos(num(S.d[`b|${w}|peso`]));
+  const okPct=x=>x!==null&&isFinite(x)&&x>0&&x<70?x:null;
+  let fita=null;
+  if(c!==null&&p!==null&&c>p)fita=okPct(495/(1.0324-0.19077*Math.log10(c-p)+0.15456*Math.log10(alt))-450);
+  const bal=okPct(num(S.d[`b|${w}|bal`]));
+  const v=[fita,bal].filter(x=>x!==null);
+  return {fita,bal,pct:v.length?v.reduce((x,y)=>x+y)/v.length:null,kg};
+}
+function faixa(g){return g<6?'abaixo da faixa de atleta':g<14?'faixa de atleta':g<18?'em forma':g<25?'aceitável':'obesidade'}
+function calcGordura(){
+  const el=$('#bf-out');if(!el)return;
+  const r=bfFor(S.ui.week),m0=num(S.d['cfg|meta']),meta=m0!==null&&m0>=3&&m0<=60?m0:14;
+  if(r.pct===null){el.innerHTML='<p class="muted small" style="margin:0">Preencha cintura e pescoço, ou a gordura da balança, e o cálculo aparece aqui.</p>';return}
+  let h='<table>';
+  if(r.fita!==null)h+=`<tr><td>Pela fita métrica</td><td class="num"><b>${f1(r.fita)}%</b></td></tr>`;
+  if(r.bal!==null)h+=`<tr><td>Pela balança</td><td class="num"><b>${f1(r.bal)}%</b></td></tr>`;
+  h+=`<tr><td>Valor usado${r.fita!==null&&r.bal!==null?' (média das duas)':''}</td><td class="num"><b>${f1(r.pct)}%</b> <span class="muted small">${faixa(r.pct)}</span></td></tr>`;
+  if(r.kg!==null){
+    const gord=r.kg*r.pct/100,magra=r.kg-gord,alvo=magra/(1-meta/100),perder=Math.max(0,r.kg-alvo);
+    h+=`<tr><td>Gordura no corpo</td><td class="num">${f1(gord)} kg</td></tr><tr><td>Massa magra (músculo, ossos, água)</td><td class="num">${f1(magra)} kg</td></tr>`;
+    h+=`<tr><td>Peso na meta de ${f1(meta)}%</td><td class="num"><b>${f1(alvo)} kg</b></td></tr><tr><td>Gordura a perder</td><td class="num">${f1(perder)} kg (cerca de ${Math.ceil(perder/0.5)} semanas)</td></tr>`;
+  }else h+='<tr><td colspan="2" class="muted small">Anote o peso da semana para ver quanta gordura você tem e o peso na meta.</td></tr>';
+  el.innerHTML=h+'</table><p class="small muted" style="margin:8px 0 0">Estimativa. A balança varia com a água do corpo, então compare sempre na mesma condição e olhe a tendência das semanas.</p>';
+}
+function renderHist(){
+  const el=$('#hist');if(!el)return;
+  const rows=[];
+  for(let i=1;i<=40;i++){const p=S.d[`b|${i}|peso`],c=S.d[`b|${i}|cint`],g=bfFor(i).pct;if(p||c||g!=null)rows.push(`<tr><td>Semana ${i}</td><td class="num">${num(p)!==null?f1(num(p))+' kg':'—'}</td><td class="num">${num(c)!==null?f1(num(c))+' cm':'—'}</td><td class="num">${g!=null?f1(g)+'%':'—'}</td></tr>`)}
+  el.innerHTML=rows.length?`<table><tr><th>Semana</th><th>Peso</th><th>Cintura</th><th>Gordura</th></tr>${rows.join('')}</table>`:'<p class="muted small" style="margin:0">As medidas que você anotar aparecem aqui.</p>';
+}
+
+function meal(t,nome,txt,m){return `<div class="meal"><div class="t">${t}</div><div><h3>${nome}</h3><div>${txt}</div></div><div class="macros num">≈ ${m}</div></div>`}
+function viewDieta(){return `
+<section class="panel">
+  <div class="grid4">
+    <div class="stat hl"><b class="num">2.200</b><span>kcal por dia</span></div>
+    <div class="stat"><b class="num">175 g</b><span>proteína (2,2 g por kg de peso)</span></div>
+    <div class="stat"><b class="num">210 g</b><span>carboidrato</span></div>
+    <div class="stat"><b class="num">70 g</b><span>gordura</span></div>
+  </div>
+  <div class="card">
+    <h2>Um dia completo</h2>
+    <p class="small muted">Montado só com o que costuma ter na sua casa. Almoço e janta seguem o que sua mãe faz, e você controla a porção do prato.</p>
+    ${meal('7h','Cardio em jejum','Água, e café preto sem açúcar se quiser.','0 kcal')}
+    ${meal('8h','Café da manhã','3 ovos mexidos (pouca margarina na frigideira) + 2 fatias de pão de forma + café com 200 ml de leite.','460 kcal · proteína 30 · carbo 35 · gordura 23')}
+    ${meal('12h30','Almoço','4 colheres de servir de arroz, 1 concha cheia de feijão, 150 g de frango (peito ou coxa sem pele) ou porco magro, salada à vontade. Evite a parte gordurosa e a pele.','585 kcal · proteína 52 · carbo 62 · gordura 15')}
+    ${meal('15h30','Lanche antes do treino','Café com 200 ml de leite + 2 fatias de pão de forma + 1 pote de iogurte. Opcional: 1 colher de sopa de pó de beterraba em água, 45 minutos antes do treino.','370 kcal · proteína 15 · carbo 52 · gordura 11')}
+    ${meal('18h30','Depois do treino','1 dose de whey (30 g) com água.','120 kcal · proteína 24 · carbo 3 · gordura 2')}
+    ${meal('19h30','Janta','<b>Se não tiver janta:</b> sanduíche com 3 fatias de pão de forma, 2 ovos, 2 fatias de mussarela e salada.<br><b>Se tiver macarrão:</b> 1 prato raso de macarrão com molho vermelho + 100 g de carne ou 2 ovos + salada.<br><b>Se tiver sopa:</b> 1 prato fundo com carne e legumes + 2 fatias de pão de forma.','455 kcal · proteína 30 · carbo 36 · gordura 22')}
+    ${meal('22h','Ceia','1 pote de iogurte com 1 dose de whey (30 g) misturada.','240 kcal · proteína 29 · carbo 21 · gordura 5')}
+    <p class="num" style="margin:12px 0 0"><b>Total do dia: cerca de 2.230 kcal, proteína 180 g, carbo 209 g, gordura 77 g.</b></p>
+  </div>
+  <div class="card">
+    <h3>Trocas que mantêm o plano</h3>
+    <div class="scroll"><table style="margin-top:8px">
+      <tr><th>Em vez de</th><th>Pode comer</th></tr>
+      <tr><td>2 fatias de pão de forma</td><td>1 pão de sal</td></tr>
+      <tr><td>Pão doce</td><td>Só no fim de semana, 1 por dia no máximo. Tem muito açúcar e pouca proteína.</td></tr>
+      <tr><td>3 ovos</td><td>2 ovos + 1 fatia de queijo, ou 1 dose de whey no café com leite</td></tr>
+      <tr><td>Manteiga ou margarina</td><td>Uma camada fina (1 colher de chá, cerca de 35 kcal). Passar muito vira calorias escondidas.</td></tr>
+      <tr><td>Açúcar no café</td><td>Adoçante, ou 1 colher de chá (20 kcal)</td></tr>
+      <tr><td>Leite pasteurizado integral</td><td>Se achar o semidesnatado, melhor ainda</td></tr>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>Regras que mais pesam no resultado</h3>
+    <ul class="plain" style="margin-top:10px">
+      <li><b>Proteína em toda refeição.</b> Ovo, frango, queijo, leite, iogurte e whey cobrem isso.</li>
+      <li><b>No almoço da sua mãe:</b> encha metade do prato com salada e legumes, e controle a porção de arroz.</li>
+      <li><b>Pode repetir salada e feijão</b>, mas não o arroz nem a carne gordurosa.</li>
+      <li><b>Evite refrigerante, suco de caixinha e frituras</b> no dia a dia. São calorias que não saciam.</li>
+      <li><b>Uma refeição livre por semana</b>, sem culpa e sem exagero. Isso ajuda a manter o plano por meses.</li>
+      <li><b>Fome forte à noite:</b> iogurte, ou 2 ovos cozidos, e água.</li>
+    </ul>
+  </div>
+  <div class="note">Os valores de calorias são estimativas (erro de até 10%). Se o peso não responder em 2 semanas, ajuste conforme a aba Cardio e corpo. Se um dia sair do plano, volte na refeição seguinte e siga normalmente.</div>
+</section>`}
+
+/* ---------- render ---------- */
+const VIEWS={resumo:viewResumo,treino:viewTreino,corpo:viewCorpo,dieta:viewDieta};
+function render(){
+  const t=S.ui.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===t)));
+  $('#main').innerHTML=VIEWS[t]();
+  if(t==='corpo'){renderHist();calcGordura()}
+}
+document.addEventListener('click',ev=>{
+  const b=ev.target.closest('button');if(!b)return;
+  const d=b.dataset;let ch=false;
+  if(d.tab){S.ui.tab=d.tab;ch=true;window.scrollTo(0,0)}
+  else if(d.day){S.ui.day=d.day;ch=true}
+  else if(d.phase){S.ui.phase=d.phase;ch=true}
+  else if(d.wk){S.ui.week=Math.min(40,Math.max(1,S.ui.week+Number(d.wk)));ch=true}
+  if(ch){render();schedule()}
+});
+document.addEventListener('input',ev=>{
+  const k=ev.target.dataset&&ev.target.dataset.k;if(!k)return;
+  if(ev.target.validity&&ev.target.validity.badInput)return;
+  const v=ev.target.value.trim();
+  if(v==='')delete S.d[k];else S.d[k]=v;
+  if(k.startsWith('b|')||k.startsWith('cfg|')){renderHist();calcGordura()}
+  schedule();
+});
+
+/* ---------- início ---------- */
+(function(){
+  const l=lsRead();
+  if(l&&l.d){S={ui:Object.assign(S.ui,l.ui||{}),d:l.d}}
+  render();
+  try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
+  window.addEventListener('storage',ev=>{if(ev.key===LS&&!(document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.k)){const n=lsRead();if(n){S={ui:Object.assign(S.ui,n.ui),d:n.d};render()}}});
+  status(lsOk?'Salvo neste aparelho':'Não foi possível salvar neste aparelho');
+})();
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+</script>
+</body></html>
