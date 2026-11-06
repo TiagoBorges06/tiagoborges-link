@@ -120,42 +120,46 @@ input.f::placeholder{color:var(--muted);opacity:.6;font-weight:400}
 /* ---------- dados do treino ---------- */
 const e=(id,n,f,h)=>({id,n,f,h});
 const DAYS={
-  seg:{abbr:'Seg',nome:'Segunda',foco:'Superior A',desc:'Peito, costas, ombros e braços (pesado)',ex:[
-    e('sa1','Supino reto com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
-    e('sa2','Remada curvada com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
-    e('sa3','Desenvolvimento com halteres sentado',[4,'5–6','2 min'],[3,'8–12','90 s']),
-    e('sa4','Puxada na frente (barra aberta)',[4,'6–8','2 min'],[3,'10–12','75 s']),
-    e('sa5','Tríceps testa com barra W',[3,'6–8','90 s'],[3,'10–12','60 s']),
-    e('sa6','Rosca direta com barra W',[3,'6–8','90 s'],[3,'10–12','60 s'])]},
-  ter:{abbr:'Ter',nome:'Terça',foco:'Inferior A',desc:'Pernas e abdômen (pesado)',ex:[
-    e('ia1','Agachamento livre',[5,'4–6','3 min'],[4,'8–10','2 min']),
-    e('ia2','Stiff com barra',[4,'6–8','2–3 min'],[3,'10–12','90 s']),
-    e('ia3','Leg press 45°',[3,'8–10','2 min'],[3,'12–15','90 s']),
-    e('ia4','Panturrilha em pé',[4,'8–10','90 s'],[4,'12–15','60 s']),
-    e('ia5','Abdominal na polia (ajoelhado)',[3,'8–10','90 s'],[3,'12–15','60 s'])]},
+  seg:{abbr:'Seg',nome:'Segunda',foco:'Peito, tríceps e ombro',desc:'Ênfase em peito, com tríceps e ombro de apoio',ex:[
+    e('pe1','Supino reto com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
+    e('pe2','Supino inclinado com halteres',[4,'6–8','2 min'],[4,'8–12','90 s']),
+    e('pe3','Crucifixo no cabo ou peck deck',[3,'10–12','75 s'],[3,'12–15','60 s']),
+    e('pe4','Desenvolvimento com halteres sentado',[3,'6–8','2 min'],[3,'8–12','90 s']),
+    e('pe5','Elevação lateral com halteres',[3,'10–12','60 s'],[3,'12–15','60 s']),
+    e('pe6','Tríceps corda na polia',[3,'8–10','75 s'],[3,'10–15','60 s'])]},
+  ter:{abbr:'Ter',nome:'Terça',foco:'Costas, bíceps e abdômen',desc:'Ênfase em costas, com bíceps e abdômen de apoio',ex:[
+    e('co1','Remada curvada com barra',[5,'4–6','2–3 min'],[4,'8–10','90 s']),
+    e('co2','Puxada na frente (barra aberta)',[4,'6–8','2 min'],[4,'10–12','90 s']),
+    e('co3','Remada baixa no cabo (triângulo)',[4,'6–8','2 min'],[3,'10–12','90 s']),
+    e('co4','Pulldown com braço reto na polia',[3,'10–12','60 s'],[3,'12–15','60 s']),
+    e('co5','Rosca direta com barra W',[3,'6–8','90 s'],[3,'10–12','60 s']),
+    e('co6','Rosca martelo',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('co7','Abdominal na polia (ajoelhado)',[3,'8–10','90 s'],[3,'12–15','60 s'])]},
   qua:{abbr:'Qua',nome:'Quarta',foco:'Descanso ativo',desc:'Mobilidade e articulações. Sem musculação.',rest:true},
-  qui:{abbr:'Qui',nome:'Quinta',foco:'Superior B',desc:'Peito, costas e ombros (mais volume)',ex:[
-    e('sb1','Supino inclinado com halteres',[4,'6–8','2 min'],[4,'8–12','90 s']),
-    e('sb2','Remada baixa no cabo (triângulo)',[4,'6–8','2 min'],[4,'10–12','90 s']),
-    e('sb3','Barra fixa ou puxada neutra',[3,'5–8','2 min'],[3,'8–12','90 s']),
-    e('sb4','Elevação lateral com halteres',[3,'10–12','60 s'],[4,'12–15','60 s']),
-    e('sb5','Crucifixo no cabo ou peck deck',[3,'10–12','75 s'],[3,'12–15','60 s']),
-    e('sb6','Face pull no cabo',[3,'12–15','60 s'],[3,'15–20','60 s'])]},
-  sex:{abbr:'Sex',nome:'Sexta',foco:'Inferior B',desc:'Glúteos, posterior, quadríceps e abdômen',ex:[
-    e('ib1','Afundo ou agachamento búlgaro',[3,'6–8 por perna','2 min'],[3,'10–12 por perna','90 s']),
-    e('ib2','Hip thrust com barra',[4,'5–8','2 min'],[3,'10–12','90 s']),
-    e('ib3','Mesa flexora',[3,'8–10','90 s'],[4,'10–12','75 s']),
-    e('ib4','Cadeira extensora',[3,'10–12','90 s'],[3,'12–15','60 s']),
-    e('ib5','Panturrilha sentado',[4,'10–12','60 s'],[4,'12–15','60 s']),
-    e('ib6','Elevação de pernas (abdômen)',[3,'10–12','60 s'],[3,'12–15','60 s'])]},
-  sab:{abbr:'Sáb',nome:'Sábado',foco:'Braços e ombros',desc:'Detalhe de braços, ombros e abdômen',ex:[
-    e('br1','Desenvolvimento Arnold',[3,'6–8','90 s'],[3,'8–12','75 s']),
-    e('br2','Rosca martelo',[3,'8–10','75 s'],[3,'10–12','60 s']),
-    e('br3','Tríceps corda na polia',[3,'8–10','75 s'],[3,'10–15','60 s']),
-    e('br4','Rosca inclinada no banco',[3,'8–10','75 s'],[3,'10–12','60 s']),
-    e('br5','Tríceps francês com halter',[3,'8–10','75 s'],[3,'10–12','60 s']),
-    e('br6','Elevação lateral no cabo',[3,'10–12','60 s'],[3,'12–15','60 s']),
-    e('br7','Abdominal na máquina ou roda',[3,'10–12','60 s'],[3,'12–15','60 s'])]},
+  qui:{abbr:'Qui',nome:'Quinta',foco:'Pernas completo',desc:'Quadríceps, posterior, glúteos e panturrilha',ex:[
+    e('pn1','Agachamento livre',[5,'4–6','3 min'],[4,'8–10','2 min']),
+    e('pn2','Stiff com barra',[4,'6–8','2–3 min'],[3,'10–12','90 s']),
+    e('pn3','Leg press 45°',[3,'8–10','2 min'],[3,'12–15','90 s']),
+    e('pn4','Afundo ou agachamento búlgaro',[3,'6–8 por perna','2 min'],[3,'10–12 por perna','90 s']),
+    e('pn5','Mesa flexora',[3,'8–10','90 s'],[4,'10–12','75 s']),
+    e('pn6','Cadeira extensora',[3,'10–12','90 s'],[3,'12–15','60 s']),
+    e('pn7','Panturrilha em pé',[4,'8–10','90 s'],[4,'12–15','60 s'])]},
+  sex:{abbr:'Sex',nome:'Sexta',foco:'Tríceps, ombro/trapézio e peito',desc:'Ênfase em tríceps, com ombro, trapézio e peito de apoio',ex:[
+    e('tr1','Tríceps testa com barra W',[5,'6–8','90 s'],[4,'10–12','60 s']),
+    e('tr2','Supino fechado com barra',[4,'6–8','2 min'],[3,'8–12','90 s']),
+    e('tr3','Tríceps francês com halter',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('tr4','Tríceps corda na polia',[3,'8–10','75 s'],[3,'10–15','60 s']),
+    e('tr5','Desenvolvimento Arnold',[3,'6–8','90 s'],[3,'8–12','75 s']),
+    e('tr6','Encolhimento com halteres (trapézio)',[4,'8–10','75 s'],[4,'12–15','60 s']),
+    e('tr7','Supino inclinado com halteres',[3,'8–10','90 s'],[3,'10–12','75 s'])]},
+  sab:{abbr:'Sáb',nome:'Sábado',foco:'Bíceps, costas e abdômen',desc:'Ênfase em bíceps, com costas e abdômen de apoio',ex:[
+    e('bi1','Rosca direta com barra',[5,'6–8','90 s'],[4,'8–12','60 s']),
+    e('bi2','Rosca inclinada no banco',[4,'8–10','75 s'],[3,'10–12','60 s']),
+    e('bi3','Rosca martelo',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('bi4','Rosca concentrada ou Scott',[3,'8–10','75 s'],[3,'10–12','60 s']),
+    e('bi5','Remada unilateral com halter',[3,'6–8','2 min'],[3,'10–12','90 s']),
+    e('bi6','Barra fixa ou puxada neutra',[3,'5–8','2 min'],[3,'8–12','90 s']),
+    e('bi7','Elevação de pernas (abdômen)',[3,'10–12','60 s'],[3,'12–15','60 s'])]},
   dom:{abbr:'Dom',nome:'Domingo',foco:'Descanso total',desc:'Sem treino. Dormir bem e comer bem.',rest:true}
 };
 const ORDER=['seg','ter','qua','qui','sex','sab','dom'];
