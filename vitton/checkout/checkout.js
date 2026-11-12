@@ -10,7 +10,8 @@
     e.preventDefault();
     var ok = document.getElementById('adulto').checked;
     erro.hidden = ok;
-    if (!ok) return;
+    document.getElementById('adulto').setAttribute('aria-invalid', ok ? 'false' : 'true');
+    if (!ok) { document.getElementById('adulto').focus(); return; }
     if (!LINK_PAGAMENTO) { nota.hidden = false; return; }
     window.location.href = LINK_PAGAMENTO;
   });

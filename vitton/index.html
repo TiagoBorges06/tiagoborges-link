@@ -10,16 +10,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vitton. Modo ON.">
 <meta property="og:description" content="Spray de performance masculina da Vittus Saúde Masculina.">
-<meta property="og:image" content="img/og-image.jpg">
+<meta property="og:image" content="https://tiagoborges.tech/vitton/img/og-image.jpg">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="img/og-image.jpg">
+<meta name="twitter:image" content="https://tiagoborges.tech/vitton/img/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="preload" href="fonts/BodoniModa-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/SchibstedGrotesk-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/seq/f05.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="img/seq/f00.webp" as="image" type="image/webp" media="(min-width: 821px)" fetchpriority="high">
+<link rel="preload" href="img/seqm/f00.webp" as="image" type="image/webp" media="(max-width: 820px)" fetchpriority="high">
 <script src="js/boot.js"></script>
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
@@ -31,6 +31,7 @@
   <symbol id="i-whats" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.3l-4.5 1.2z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M9 8.5c.3 2.6 3.1 5.6 6.2 6.3l1.2-1.3-2-1.1-.9.7c-1-.4-2-1.3-2.4-2.3l.7-.9-1.1-2z"/></symbol>
   <symbol id="i-seta" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7.5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-11A6.5 6.5 0 0 0 5.5 10C5.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
   <symbol id="i-mao" viewBox="0 0 24 24"><path d="M12 3v7M12 10l-3-3M12 10l3-3M6 13a6 6 0 0 0 12 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
@@ -39,6 +40,7 @@
 <div class="barra-progresso" aria-hidden="true"><i id="barra"></i></div>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 
+<a class="salto" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo" id="topo-fixo">
   <a class="marca" href="#inicio" aria-label="Vitton, ir ao início">
     <img src="img/lobo.webp" width="504" height="228" alt="" class="marca-lobo">
@@ -51,7 +53,7 @@
     <a href="#disciplina">Disciplina</a>
     <a href="#comprar">Comprar</a>
   </nav>
-  <a class="btn btn-mini" href="https://wa.me/5531973019186?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20do%20Vitton%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+  <a class="btn btn-mini" href="https://wa.me/5531985403817?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20do%20Vitton%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
     <svg class="ic"><use href="#i-whats"/></svg><span>WhatsApp</span>
   </a>
 </header>
@@ -61,18 +63,18 @@
 <!-- Frasco 3D controlado pela rolagem (camada fixa) -->
 <div class="frasco" id="frasco" aria-hidden="true">
   <div class="frasco-sombra"></div>
-  <img id="frasco-img" class="frasco-quadro" src="img/seq/f05.webp" width="720" height="883" alt="" decoding="async" fetchpriority="high">
+  <picture><source media="(max-width: 820px)" srcset="img/seqm/f00.webp"><img id="frasco-img" class="frasco-quadro" src="img/seq/f00.webp" width="720" height="883" alt="" decoding="async" fetchpriority="high"></picture>
   <canvas id="frasco-canvas" class="frasco-quadro" width="720" height="883"></canvas>
-  <span class="hot" data-hot="0" style="--x:87%;--y:24.5%"></span>
-  <span class="hot" data-hot="1" style="--x:72%;--y:9%"></span>
-  <span class="hot" data-hot="2" style="--x:74%;--y:59%"></span>
-  <span class="hot" data-hot="3" style="--x:72%;--y:87.5%"></span>
+  <span class="hot" data-hot="0" style="--x:74%;--y:16%"></span>
+  <span class="hot" data-hot="1" style="--x:75%;--y:8%"></span>
+  <span class="hot" data-hot="2" style="--x:74%;--y:60%"></span>
+  <span class="hot" data-hot="3" style="--x:74%;--y:73%"></span>
 </div>
 
 <main id="conteudo">
 
 <!-- 1. HERO -->
-<section class="s s-hero" id="inicio" data-k0="14,4,1,1,0" data-k1="12,0,1.06,1,54" data-m0="0,25,.7,1,0" data-m1="0,19,.74,1,54" aria-labelledby="t-hero">
+<section class="s s-hero" id="inicio" data-k0="22,2,1,1,0" data-k1="22,0,1.04,1,40" data-m0="0,27,.66,1,0" data-m1="0,25,.7,1,40" aria-labelledby="t-hero">
   <div class="sticky">
     <div class="laje" data-prof="0.4"></div>
     <img class="lobo-marca" data-prof="0.15" src="img/lobo-grande.webp" width="1008" height="456" alt="" aria-hidden="true" decoding="async">
@@ -93,37 +95,27 @@
 </section>
 
 <!-- 2. FRASE-LEMA -->
-<section class="s s-lema" id="frase" data-k0="0,0,1.35,1,80" data-k1="0,0,1.2,1,360" data-m0="0,4,.95,1,80" data-m1="0,4,.9,1,360" aria-label="Feito para o seu momento">
+<section class="s s-lema" id="frase" data-k0="24,0,1.12,1,40" data-k1="24,0,1.12,1,330" data-m0="0,24,.74,1,40" data-m1="0,24,.74,1,330" aria-label="Feito para o seu momento">
   <div class="sticky">
     <div class="lema-fundo" data-prof="0.3"></div>
     <h2 class="lema z-front">
-      <span class="lema-l" data-dir="-1">Feito para</span>
-      <span class="lema-l" data-dir="1"><em>o seu momento.</em></span>
+      <span class="lema-l">Feito para</span>
+      <span class="lema-l"><em>o seu</em></span>
+      <span class="lema-l"><em>momento.</em></span>
     </h2>
     <p class="lema-sub z-front">Vitton · Modo ON</p>
   </div>
 </section>
 
-<div class="faixa" aria-hidden="true">
-  <div class="faixa-trilho">
-    <span>Modo ON</span><svg class="ic"><use href="#i-diamante"/></svg>
-        <span>Uso adulto</span><svg class="ic"><use href="#i-diamante"/></svg>
-    <span>Saúde masculina</span><svg class="ic"><use href="#i-diamante"/></svg>
-    <span>Vittus</span><svg class="ic"><use href="#i-diamante"/></svg>
-    <span>Modo ON</span><svg class="ic"><use href="#i-diamante"/></svg>
-        <span>Uso adulto</span><svg class="ic"><use href="#i-diamante"/></svg>
-    <span>Saúde masculina</span><svg class="ic"><use href="#i-diamante"/></svg>
-    <span>Vittus</span><svg class="ic"><use href="#i-diamante"/></svg>
-  </div>
-</div>
 
 <!-- 3. ANATOMIA -->
-<section class="s s-anat" id="anatomia" data-k0="-17,0,1,1,345" data-k1="-17,0,1.02,1,385" data-m0="0,-14,.78,1,345" data-m1="0,-14,.8,1,385" aria-labelledby="t-anat">
+<section class="s s-anat" id="anatomia" data-k0="-18,0,1,1,345" data-k1="-18,0,1,1,385" data-m0="0,-19,.74,1,345" data-m1="0,-19,.74,1,385" aria-labelledby="t-anat">
   <div class="sticky">
     <div class="anat-txt z-front">
       <p class="eyebrow">O frasco</p>
       <h2 id="t-anat">Quando você está no controle, <em>tudo muda.</em></h2>
       <ol class="passos" id="passos">
+        <li data-hot="2"><span class="n">01</span><div><h3>Uso tópico</h3><p>Aplicado sobre a pele. Siga as orientações de uso.</p></div></li>
         <li data-hot="3"><span class="n">02</span><div><h3>Uso adulto</h3><p>Produto destinado ao público adulto.</p></div></li>
         <li data-hot="0"><span class="n">03</span><div><h3>Bico spray</h3><p>Aplicação em spray, direta e discreta.</p></div></li>
         <li data-hot="1"><span class="n">04</span><div><h3>Tampa transparente</h3><p>Protege o bico e mantém o frasco sempre pronto.</p></div></li>
@@ -133,7 +125,7 @@
 </section>
 
 <!-- 4. ILHA DE LUZ -->
-<section class="s s-ilha" id="ilha" data-k0="3,2,.9,1,685" data-k1="3,2,.95,1,715" data-m0="0,-6,.52,0,685" data-m1="0,-6,.54,0,715" aria-labelledby="t-ilha">
+<section class="s s-ilha" id="ilha" data-k0="0,0,.9,0,385" data-k1="0,0,.9,0,385" data-m0="0,0,.6,0,385" data-m1="0,0,.6,0,385" aria-labelledby="t-ilha">
   <div class="sticky">
     <div class="ilha-foto" id="ilha-foto">
       <img src="img/pedestal.webp" width="900" height="1613" alt="Embalagem e frasco do Vitton sobre um pedestal de pedra clara, sob luz dourada" loading="lazy" decoding="async" data-prof="0.2">
@@ -147,7 +139,7 @@
 </section>
 
 <!-- 5. A CIDADE ACORDA -->
-<section class="s s-cidade" id="cidade" data-k0="24,10,.62,1,730" data-k1="24,6,.64,1,775" data-m0="0,26,.46,1,730" data-m1="0,22,.48,1,775" aria-labelledby="t-cidade">
+<section class="s s-cidade" id="cidade" data-k0="0,0,.9,0,385" data-k1="0,0,.9,0,385" data-m0="0,0,.6,0,385" data-m1="0,0,.6,0,385" aria-labelledby="t-cidade">
   <div class="sticky">
     <div class="planos" id="planos">
       <figure class="plano plano-fundo" data-prof="-0.5"><img src="img/outdoor.webp" width="1000" height="1051" alt="Outdoor noturno com a marca Vitton" loading="lazy" decoding="async"></figure>
@@ -161,7 +153,7 @@
 </section>
 
 <!-- 6. DISCIPLINA -->
-<section class="s s-disc" id="disciplina" data-k0="0,0,.6,0,780" data-k1="0,0,.6,0,800" data-m0="0,0,.5,0,780" data-m1="0,0,.5,0,800" aria-labelledby="t-disc">
+<section class="s s-disc" id="disciplina" data-k0="0,0,.9,0,385" data-k1="0,0,.9,0,385" data-m0="0,0,.6,0,385" data-m1="0,0,.6,0,385" aria-labelledby="t-disc">
   <div class="sticky">
     <figure class="disc-foto" id="disc-foto"><img src="img/homem.webp" width="760" height="2432" alt="Homem sentado, olhando ao longe, com a embalagem do Vitton ao lado" loading="lazy" decoding="async" data-prof="0.15"></figure>
     <div class="disc-txt">
@@ -173,7 +165,7 @@
 </section>
 
 <!-- 7. COMPRA -->
-<section class="s s-compra" id="comprar" data-k0="-20,-2,1,1,820" data-k1="-20,-2,1,1,1080" data-m0="0,-31,.68,1,820" data-m1="0,-31,.7,1,1080" aria-labelledby="t-compra">
+<section class="s s-compra" id="comprar" data-k0="-20,-2,1,1,385" data-k1="-20,-2,1,1,745" data-m0="0,-25,.68,1,385" data-m1="0,-25,.68,1,745" aria-labelledby="t-compra">
   <div class="sticky">
     <div class="placa z-front" id="placa">
       <span class="placa-brilho" aria-hidden="true"></span>
@@ -183,10 +175,10 @@
       <a class="btn btn-grande" href="checkout/" data-magnetico>
         <svg class="ic"><use href="#i-seta"/></svg><span>Comprar agora</span>
       </a>
-      <p class="corpo"><a href="https://wa.me/5531973019186?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20do%20Vitton%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Prefere falar antes? Chame a clínica no WhatsApp.</a></p>
+      <p class="corpo"><a href="https://wa.me/5531985403817?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20do%20Vitton%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Prefere falar antes? Chame a clínica no WhatsApp.</a></p>
       <ul class="fichas">
-        
         <li class="ficha"><h3>Uso adulto</h3><p>Destinado ao público adulto.</p></li>
+        <li class="ficha"><h3>Uso tópico</h3><p>Siga as orientações de uso.</p></li>
       </ul>
     </div>
   </div>
@@ -194,18 +186,19 @@
 
 </main>
 
-<footer class="rodape s" id="rodape" data-k0="-20,-34,1,0,1080" data-k1="-20,-34,1,0,1080" data-m0="0,-40,.76,0,1080" data-m1="0,-40,.76,0,1080">
+<footer class="rodape s" id="rodape" data-k0="-20,-34,1,0,745" data-k1="-20,-34,1,0,745" data-m0="0,-40,.76,0,745" data-m1="0,-40,.76,0,745">
   <div class="rodape-in">
     <div class="rodape-marca">
       <img src="img/vittus-logo.webp" width="354" height="192" alt="Vittus Saúde Masculina" loading="lazy" decoding="async">
       <p>Vittus Saúde Masculina</p>
     </div>
     <address class="rodape-info">
-      <p><svg class="ic"><use href="#i-pin"/></svg><span>Rua Ouro Preto, 896, Belo Horizonte, MG, CEP 30170-044<br>Também em Divinópolis, MG</span></p>
-      <p><svg class="ic"><use href="#i-whats"/></svg><a href="https://wa.me/5531973019186" target="_blank" rel="noopener">(31) 97301-9186</a><span class="muda">Seg a Sex, 8h às 18h</span></p>
+      <p><svg class="ic"><use href="#i-pin"/></svg><span>Av. do Contorno, 3861, Funcionários, Belo Horizonte, MG<br>Também em Divinópolis, MG</span></p>
+      <p><svg class="ic"><use href="#i-whats"/></svg><a href="https://wa.me/5531985403817" target="_blank" rel="noopener">(31) 98540-3817</a><span class="muda">Seg a Sex, 8h às 18h</span></p>
+      <p><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:vittusclinica@gmail.com">vittusclinica@gmail.com</a><span class="muda">Suporte</span></p>
       <p><svg class="ic"><use href="#i-insta"/></svg><a href="https://www.instagram.com/vittonspray/" target="_blank" rel="noopener">@vittonspray</a><span class="muda">e</span><a href="https://www.instagram.com/vittus.saude/" target="_blank" rel="noopener">@vittus.saude</a></p>
     </address>
-    <p class="aviso">Vitton é um produto de uso adulto.</p>
+    <p class="aviso">Vitton é um produto de uso adulto e de uso tópico. Siga as orientações de uso.</p>
     <p class="credito">Desenvolvido por <a href="https://tiagoborges.tech" target="_blank" rel="noopener">tiagoborges.tech</a></p>
   </div>
 </footer>

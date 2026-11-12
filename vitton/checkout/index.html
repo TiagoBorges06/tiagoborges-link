@@ -14,7 +14,7 @@
 <body>
 <header class="topo">
   <a class="voltar" href="../">&larr; Voltar à página</a>
-  <img src="../img/vittus-logo.webp" alt="Vittus Saúde Masculina" width="120" height="40">
+  <img src="../img/vittus-logo.webp" alt="Vittus Saúde Masculina" width="120" height="65">
 </header>
 
 <main class="caixa">
@@ -22,7 +22,7 @@
   <h1>Finalize o seu pedido</h1>
 
   <section class="resumo" aria-labelledby="t-resumo">
-    <img src="../img/packshot.webp" alt="Frasco do Vitton" width="140" height="140">
+    <img src="../img/seq/f00.webp" alt="Embalagem e frasco spray do Vitton" width="720" height="883">
     <div>
       <h2 id="t-resumo">Vitton Spray</h2>
       <p>Linha Saúde Masculina. 1 frasco.</p>
@@ -34,7 +34,7 @@
     <fieldset>
       <legend>Antes de pagar</legend>
       <label class="check">
-        <input type="checkbox" id="adulto" required>
+        <input type="checkbox" id="adulto" required aria-describedby="erro">
         <span>Tenho 18 anos ou mais.</span>
       </label>
       <p class="erro" id="erro" role="alert" hidden>Marque a opção para continuar.</p>
@@ -44,7 +44,8 @@
     <p class="nota" id="nota" hidden>O pagamento ainda está sendo configurado. Em breve este botão leva ao pagamento.</p>
   </form>
 
-  <p class="aviso">Vittus Saúde Masculina, Rua Ouro Preto, 896, Belo Horizonte, MG.</p>
+  <p class="aviso">Vittus Saúde Masculina, Av. do Contorno, 3861, Funcionários, Belo Horizonte, MG.<br>Suporte: <a href="https://wa.me/5531985403817" target="_blank" rel="noopener">(31) 98540-3817</a> · <a href="mailto:vittusclinica@gmail.com">vittusclinica@gmail.com</a></p>
+  <p class="aviso">Produto de uso adulto e de uso tópico. Siga as orientações de uso.</p>
   <p class="aviso">Desenvolvido por <a href="https://tiagoborges.tech" target="_blank" rel="noopener">tiagoborges.tech</a></p>
 </main>
 <script src="checkout.js"></script>
