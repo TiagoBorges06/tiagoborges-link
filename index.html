@@ -17,8 +17,11 @@
   <meta property="og:image:alt" content="Tiago Borges, desenvolvedor full stack">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F5F3F0">
-  <link rel="preload" href="assets/fonts/Kanit-Medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/heroi-rosto-1600.webp" imagesrcset="assets/img/heroi-rosto-900.webp 900w, assets/img/heroi-rosto-1600.webp 1600w, assets/img/heroi-rosto-2560.webp 2560w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" href="assets/fonts/BarlowCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/heroi-largo-fundo.webp" media="(min-aspect-ratio: 4001/5000)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/heroi-alto-fundo.webp" media="(max-aspect-ratio: 4/5)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/heroi-largo-rosto-1600.webp" imagesrcset="assets/img/heroi-largo-rosto-900.webp 896w, assets/img/heroi-largo-rosto-1600.webp 1600w, assets/img/heroi-largo-rosto-2560.webp 2560w" imagesizes="100vw" media="(min-aspect-ratio: 4001/5000)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/heroi-alto-rosto-1080.webp" imagesrcset="assets/img/heroi-alto-rosto-720.webp 720w, assets/img/heroi-alto-rosto-900.webp 900w, assets/img/heroi-alto-rosto-1080.webp 1080w, assets/img/heroi-alto-rosto-1440.webp 1440w" imagesizes="100vw" media="(max-aspect-ratio: 4/5)" fetchpriority="high">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -40,7 +43,7 @@
 
   <header class="nav" data-nav>
     <div class="nav__in">
-      <a class="nav__logo" href="#topo" aria-label="Tiago Borges, início"><span>T</span>IAGO<i>.</i></a>
+      <a class="nav__logo" href="#topo"><img src="assets/img/logo-tiago.webp" width="180" height="78" alt="tiago, início"></a>
       <nav class="nav__links" aria-label="Seções">
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
@@ -53,18 +56,33 @@
   <main id="topo">
     <!-- HERÓI: rosto embaixo, máscara em cima; a máscara se abre por onde o cursor passa -->
     <section class="heroi" data-heroi aria-label="Apresentação">
-      <img class="heroi__rosto" src="assets/img/heroi-rosto-1600.webp"
-           srcset="assets/img/heroi-rosto-900.webp 900w, assets/img/heroi-rosto-1600.webp 1600w, assets/img/heroi-rosto-2560.webp 2560w" sizes="100vw"
-           width="2560" height="1440" alt="Tiago Borges, de capuz vermelho, olhando para a câmera" fetchpriority="high">
-      <canvas class="heroi__mascara" data-mascara aria-hidden="true"
-              data-src-900="assets/img/heroi-mascara-900.webp" data-src-1600="assets/img/heroi-mascara-1600.webp" data-src-2560="assets/img/heroi-mascara-2560.webp"></canvas>
-      <div class="heroi__veu" aria-hidden="true"></div>
+      <!-- palco: as camadas da arte (fundo > palavra > rosto > máscara) empilhadas; a palavra vai de borda a borda -->
+      <div class="heroi__palco" data-palco>
+        <picture>
+          <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/heroi-alto-fundo.webp" width="720" height="1280">
+          <img class="heroi__fundo" src="assets/img/heroi-largo-fundo.webp" width="1600" height="900" alt="" fetchpriority="high">
+        </picture>
+        <picture>
+          <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/heroi-alto-palavra-720.webp 720w, assets/img/heroi-alto-palavra-1080.webp 1080w" sizes="100vw" width="720" height="334">
+          <img class="heroi__palavra" data-palavra src="assets/img/heroi-largo-palavra-1440.webp" srcset="assets/img/heroi-largo-palavra-1440.webp 1440w, assets/img/heroi-largo-palavra-2560.webp 2560w" sizes="100vw" width="1440" height="439" alt="Web design" decoding="async">
+        </picture>
+        <picture>
+          <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/heroi-alto-rosto-720.webp 720w, assets/img/heroi-alto-rosto-900.webp 900w, assets/img/heroi-alto-rosto-1080.webp 1080w, assets/img/heroi-alto-rosto-1440.webp 1440w" sizes="100vw" width="1440" height="2560">
+          <img class="heroi__rosto" src="assets/img/heroi-largo-rosto-1600.webp"
+               srcset="assets/img/heroi-largo-rosto-900.webp 896w, assets/img/heroi-largo-rosto-1600.webp 1600w, assets/img/heroi-largo-rosto-2560.webp 2560w" sizes="100vw"
+               width="2560" height="1440" alt="Tiago Borges, de capuz vermelho, com as palavras web design em letras gigantes atrás da cabeça" fetchpriority="high">
+        </picture>
+        <canvas class="heroi__mascara" data-mascara aria-hidden="true"
+                data-src-900="assets/img/heroi-largo-mascara-900.webp" data-src-1600="assets/img/heroi-largo-mascara-1600.webp" data-src-2560="assets/img/heroi-largo-mascara-2560.webp"
+                data-alto-720="assets/img/heroi-alto-mascara-720.webp" data-alto-900="assets/img/heroi-alto-mascara-900.webp" data-alto-1080="assets/img/heroi-alto-mascara-1080.webp" data-alto-1440="assets/img/heroi-alto-mascara-1440.webp"></canvas>
+        <div class="heroi__veu" aria-hidden="true"></div>
+      </div>
 
       <div class="heroi__texto">
-        <p class="kicker" data-entra="1">Desenvolvedor Full Stack</p>
-        <h1 class="heroi__nome" data-entra="2"><img class="titulo-img" src="assets/img/tipo-heroi-nome.webp" width="499" height="215" style="--w:499px" alt="Tiago Borges" fetchpriority="high"></h1>
-        <p class="heroi__sub" data-entra="3">Sites que vendem, sistemas sob medida e inteligência artificial que trabalha pelo seu negócio.</p>
-        <div class="heroi__botoes" data-entra="4">
+        <h1 class="sr">Tiago Borges, desenvolvedor full stack</h1>
+        <p class="kicker heroi__kicker">Desenvolvedor full stack</p>
+        <p class="heroi__sub">Sites que vendem <span aria-hidden="true">|</span> Sistemas sob medida <span aria-hidden="true">|</span> <mark>IA</mark> que trabalha pelo seu negócio</p>
+        <div class="heroi__botoes" data-entra="2">
           <a class="btn btn--primario" href="#projetos">Ver projetos</a>
           <a class="btn btn--escuro" href="https://wa.me/5531998603532?text=Ol%C3%A1%20Tiago%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp<span class="sr"> (abre em nova aba)</span></a>
         </div>
@@ -90,10 +108,10 @@
       <div class="sobre__in">
         <div class="sobre__texto">
           <p class="kicker revela revela--cortina">Por trás da máscara</p>
-          <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-sobre.webp" width="495" height="67" style="--w:495px" alt="Quem sou eu" loading="lazy" decoding="async"></h2>
+          <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-sobre.webp" width="485" height="143" style="--w:485px" alt="Quem sou eu. Capítulo 01" loading="lazy" decoding="async"></h2>
           <div class="sobre__paragrafos">
             <p class="revela revela--gira">Sou desenvolvedor full stack em Belo Horizonte. Transformo ideias de negócio em produtos digitais que funcionam de verdade: sites que convertem, sistemas que organizam a operação e inteligência artificial que atende, vende e trabalha 24 horas por dia.</p>
-            <p class="revela revela--gira">Cuido de tudo, do design da interface ao servidor no ar. Você fala com uma pessoa só e recebe uma entrega completa, rápida e com acabamento de alto nível.</p>
+            <p class="revela revela--gira">Cuido de tudo, do design da interface ao servidor. Você fala diretamente comigo e recebe a entrega completa, de forma rápida e com acabamento de altíssimo nível.</p>
           </div>
           <div class="sobre__stack">
             <h3 class="rotulo">Tecnologias que domino</h3>
@@ -122,7 +140,7 @@
       </div>
       <div class="secao__cabeca">
         <p class="kicker revela revela--cortina">O que eu construo</p>
-        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-servicos.webp" width="371" height="72" style="--w:371px" alt="Serviços" loading="lazy" decoding="async"></h2>
+        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-servicos.webp" width="585" height="143" style="--w:585px" alt="Meus serviços. Capítulo 02" loading="lazy" decoding="async"></h2>
         <span class="secao__traco revela revela--cortina" aria-hidden="true"></span>
       </div>
       <ol class="servicos__lista" role="list">
@@ -206,7 +224,7 @@
       <svg class="rede rede--projetos" viewBox="0 0 600 600" aria-hidden="true"><use href="#rede"/></svg>
       <div class="secao__cabeca">
         <p class="kicker revela revela--cortina">Trabalhos selecionados</p>
-        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-projetos.webp" width="383" height="54" style="--w:383px" alt="Projetos" loading="lazy" decoding="async"></h2>
+        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-projetos.webp" width="609" height="143" style="--w:609px" alt="Projetos no ar. Capítulo 03" loading="lazy" decoding="async"></h2>
         <span class="secao__traco revela revela--cortina" aria-hidden="true"></span>
       </div>
       <div class="projetos__grade">
@@ -308,7 +326,7 @@
     <section id="empresas" class="empresas" data-revela>
       <div class="secao__cabeca">
         <p class="kicker revela revela--cortina">Empresas que atendo</p>
-        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-empresas.webp" width="512" height="66" style="--w:512px" alt="Quem confia" loading="lazy" decoding="async"></h2>
+        <h2 class="titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-empresas.webp" width="500" height="143" style="--w:500px" alt="Quem confia. Capítulo 04" loading="lazy" decoding="async"></h2>
         <span class="secao__traco revela revela--cortina" aria-hidden="true"></span>
       </div>
       <div class="logos" data-logos>
@@ -352,7 +370,7 @@
       <svg class="rede rede--cta" viewBox="0 0 600 600" aria-hidden="true"><use href="#rede"/></svg>
       <div class="cta__in">
         <p class="kicker kicker--claro revela revela--cortina">Vamos conversar</p>
-        <h2 class="cta__titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-cta.webp" width="660" height="191" style="--w:660px" alt="Seu projeto começa aqui." loading="lazy" decoding="async"></h2>
+        <h2 class="cta__titulo revela revela--sobe"><img class="titulo-img" src="assets/img/tipo-titulo-cta.webp" width="724" height="305" style="--w:724px" alt="Seu projeto começa aqui. O próximo capítulo é seu" loading="lazy" decoding="async"></h2>
         <p class="cta__texto revela revela--sobe">Me conte o que você precisa: um site que vende, um sistema para organizar a empresa ou uma automação que economiza horas. Eu respondo pessoalmente.</p>
         <div class="cta__acao revela revela--flutua">
           <a class="btn btn--brilho" href="https://wa.me/5531998603532?text=Ol%C3%A1%20Tiago%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
@@ -378,7 +396,7 @@
           <a href="https://wa.me/5531998603532?text=Ol%C3%A1%20Tiago%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">WhatsApp<span class="sr"> (abre em nova aba)</span></a>
         </nav>
       </div>
-      <img class="rodape__nome" src="assets/img/tipo-rodape-nome.webp" width="2400" height="241" alt="Tiago Borges" loading="lazy" decoding="async">
+      <img class="rodape__logo" src="assets/img/logo-tiago-clara.webp" width="1730" height="752" alt="tiago" loading="lazy" decoding="async">
       <div class="rodape__base">
         <span>© <span data-ano>2026</span> Tiago Borges. Todos os direitos reservados.</span>
         <a href="#topo">Voltar ao topo ↑</a>

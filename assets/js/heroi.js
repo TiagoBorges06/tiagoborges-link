@@ -18,6 +18,9 @@
   const canvas = heroi && heroi.querySelector('[data-mascara]');
   if (!heroi || !canvas) return;
   const ctx = canvas.getContext('2d');
+  // palco = área da arte (em tela em pé ele fica em cima e o texto desce para baixo dele)
+  const palco = heroi.querySelector('[data-palco]') || heroi;
+  const palavra = heroi.querySelector('[data-palavra]');
 
   // "furos" acumulados: canvas fora da tela, em resolução reduzida (mais leve)
   const furos = document.createElement('canvas');
@@ -26,28 +29,68 @@
 
   const mascara = new Image();
   mascara.decoding = 'async';
-  mascara.src = (() => { const px = innerWidth * Math.min(devicePixelRatio || 1, 2); return canvas.getAttribute(px > 1700 ? 'data-src-2560' : px > 950 ? 'data-src-1600' : 'data-src-900'); })();
+  // tela em pé (celular, tablet em pé) usa a arte em pé; a mesma condição está no <picture> e no CSS
+  const emPe = matchMedia('(max-aspect-ratio: 4/5)');
+  function fonteMascara() {
+    const px = innerWidth * Math.min(devicePixelRatio || 1, 2);
+    if (emPe.matches) return canvas.getAttribute(px > 1100 ? 'data-alto-1440' : px > 920 ? 'data-alto-1080' : px > 740 ? 'data-alto-900' : 'data-alto-720');
+    return canvas.getAttribute(px > 1700 ? 'data-src-2560' : px > 950 ? 'data-src-1600' : 'data-src-900');
+  }
+  mascara.src = fonteMascara();
 
   let W = 0, H = 0, dpr = 1, raio = 90;
   let alvo = null, pos = null, ultimo = null;
   let ultimaPincelada = 0, rodando = false, visivel = true;
 
   function medir() {
-    const r = heroi.getBoundingClientRect();
+    decidirArranjo();
+    const r = palco.getBoundingClientRect();
     dpr = Math.min(devicePixelRatio || 1, 2);
     W = Math.round(r.width); H = Math.round(r.height);
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     furos.width = Math.max(1, Math.round(W * ESCALA_FURO)); furos.height = Math.max(1, Math.round(H * ESCALA_FURO));
     raio = Math.max(60, Math.min(120, W * 0.065));
+    posicionarPalavra();
     desenhar();
   }
 
-  // mesma conta do CSS object-fit: cover + object-position (50% 30% no desktop, 50% 20% no celular)
+  // "WEB DESIGN" vai de borda a borda (largura 100% no CSS); aqui só a altura: o topo da palavra fica na mesma
+  // altura em que ela foi desenhada na arte (16,2% na deitada, 10,4% na em pé), atrás da cabeça em qualquer tela
+  function posicionarPalavra() {
+    if (!palavra || !W) return;
+    const [, y, , h] = capa();
+    let topo = y + h * (emPe.matches ? 0.104 : 0.162);
+    const texto = heroi.querySelector('.heroi__texto');
+    // texto por cima da arte (tela deitada larga): a palavra sobe o necessário para não encostar nele
+    if (texto && texto.offsetTop < palco.offsetHeight) topo = Math.min(topo, texto.offsetTop - 16 - alturaPalavra());
+    palavra.style.top = Math.round(Math.max(pisoDoMenu(), topo)) + 'px'; // nunca por baixo do menu
+  }
+  function alturaPalavra() { return W * (palavra.getAttribute('height') / palavra.getAttribute('width')); }
+  // fim do menu no estado do topo da página (o menu fica mais baixo e menor depois de rolar, então não dá para medir na hora):
+  // 22px de respiro em cima + a altura da linha do menu (logo de 30 a 38px ou links de ~31px) + 8px de folga
+  function pisoDoMenu() { const logo = Math.min(38, Math.max(30, innerWidth * 0.026)); return Math.ceil(22 + Math.max(logo, 31) + 8); }
+
+  // tela deitada baixa (ex.: notebook 1536x730): a palavra de borda a borda e o texto não cabem juntos em 100% da
+  // altura; o topo fica só o necessário mais alto que a tela (o resto do arranjo continua igual)
+  function decidirArranjo() {
+    if (!palavra) return;
+    heroi.style.minHeight = '';
+    if (matchMedia('(max-aspect-ratio: 5/4)').matches) return; // empilhado pelo CSS: texto já fica embaixo
+    const texto = heroi.querySelector('.heroi__texto');
+    if (!texto) return;
+    const alt = heroi.offsetWidth * (palavra.getAttribute('height') / palavra.getAttribute('width'));
+    const margemBaixo = heroi.offsetHeight - (texto.offsetTop + texto.offsetHeight);
+    const preciso = Math.ceil(pisoDoMenu() + alt + 16 + texto.offsetHeight + margemBaixo);
+    if (preciso > heroi.offsetHeight) heroi.style.minHeight = preciso + 'px';
+  }
+
+  // mesma conta do CSS object-fit: cover + object-position (50% 30% na arte deitada, 50% 15% na arte em pé)
   function capa() {
-    const iw = mascara.naturalWidth, ih = mascara.naturalHeight;
+    // proporção fixa das artes (deitada 16:9, em pé 9:16): não depende da imagem já ter carregado
+    const iw = emPe.matches ? 1080 : 1920, ih = emPe.matches ? 1920 : 1080;
     const s = Math.max(W / iw, H / ih);
     const dw = iw * s, dh = ih * s;
-    const py = innerWidth <= 760 ? 0.2 : 0.3;
+    const py = emPe.matches ? 0.15 : 0.3;
     return [(W - dw) * 0.5, (H - dh) * py, dw, dh];
   }
 
@@ -102,7 +145,7 @@
   function agenda() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
 
   function mover(e) {
-    const r = heroi.getBoundingClientRect();
+    const r = palco.getBoundingClientRect();
     alvo = { x: e.clientX - r.left, y: e.clientY - r.top };
     ultimaPincelada = performance.now();
     heroi.classList.add('is-ativo', 'is-tocado');
@@ -110,22 +153,31 @@
   }
   function sair() { heroi.classList.remove('is-ativo'); alvo = null; ultimo = null; pos = null; agenda(); }
 
-  heroi.addEventListener('pointermove', mover, { passive: true });
-  heroi.addEventListener('pointerdown', mover, { passive: true });
-  heroi.addEventListener('pointerleave', sair);
-  heroi.addEventListener('pointercancel', sair);
+  palco.addEventListener('pointermove', mover, { passive: true });
+  palco.addEventListener('pointerdown', mover, { passive: true });
+  palco.addEventListener('pointerleave', sair);
+  palco.addEventListener('pointercancel', sair);
 
   // só trabalha quando o herói está na tela
   if ('IntersectionObserver' in window) new IntersectionObserver(([en]) => { visivel = en.isIntersecting; if (visivel) agenda(); }).observe(heroi);
 
   let espera;
-  addEventListener('resize', () => { clearTimeout(espera); espera = setTimeout(medir, 120); });
+  addEventListener('resize', () => {
+    clearTimeout(espera);
+    espera = setTimeout(() => {
+      // a janela cresceu ou diminuiu muito: a máscara acompanha a resolução da imagem de baixo
+      medir(); // redesenha já no tamanho novo, mesmo antes de uma máscara nova chegar
+      const f = fonteMascara();
+      if (f && !mascara.src.endsWith(f)) mascara.src = f;
+    }, 120);
+  });
 
   // primeira visita: a revelação faz sozinha um arco sobre os olhos
   function arcoAutomatico() {
     if (reduz) return;
     const [x, y, w, h] = capa();
-    const cx = x + w * 0.557, cy = y + h * 0.39; // centro dos olhos na imagem
+    // centro dos olhos na imagem (medido na arte de cada formato)
+    const cx = x + w * (emPe.matches ? 0.499 : 0.4995), cy = y + h * (emPe.matches ? 0.48 : 0.39);
     const amp = w * 0.07, inicio = performance.now(), dur = 1800;
     heroi.classList.add('is-ativo');
     (function passo(agora) {
@@ -142,13 +194,17 @@
 
   let iniciou = false; // o load pode chegar duas vezes (cache + disparo manual)
   function iniciar() {
-    if (iniciou) return;
+    if (iniciou) { medir(); return; } // troca de formato: só redesenha com a arte nova
     iniciou = true;
     medir();
     heroi.classList.add('is-pronto');
     setTimeout(arcoAutomatico, 1300);
   }
+  medir(); // posiciona a palavra antes mesmo de a máscara chegar
+  if (document.fonts) document.fonts.ready.then(posicionarPalavra); // a fonte pode mudar a altura do texto de baixo
   mascara.addEventListener('load', iniciar);
+  // girou a tela ou mudou a proporção da janela: troca a arte da máscara junto com a do <picture>
+  emPe.addEventListener('change', () => { fctx.clearRect(0, 0, furos.width, furos.height); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, canvas.width, canvas.height); mascara.src = fonteMascara(); });
   if (mascara.complete && mascara.naturalWidth) iniciar();
   else heroi.classList.add('is-pronto');
 
